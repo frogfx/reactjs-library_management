@@ -9,12 +9,18 @@ export const Header = styled.header`
    justify-content: space-between;
 `;
 
+export const HeaderLeft = styled.div`
+   display: flex;
+   align-items: center;
+`;
+
 export const Toggle = styled.div`
    cursor: pointer;
    width: 2.4rem;
    height: 2.4rem;
    display: flex;
    align-items: center;
+   margin-right: 1rem;
 `;
 
 export const BarsIcon = styled.div`
