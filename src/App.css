@@ -34,7 +34,7 @@ input:-webkit-autofill:active {
 }
 body {
    font-family: "Poppins", sans-serif;
-   font-size: 1.4rem;
+   font-size: 1.3rem;
    line-height: 1.2;
    background-color: #fff;
    overflow-x: hidden;
@@ -46,7 +46,8 @@ body {
 ::-webkit-scrollbar-track {
 }
 ::-webkit-scrollbar-thumb {
-   background: #33b5e5;
+   background: rgba(233, 236, 239, 0.75);
+   border-radius: 5px;
 }
 .App {
    position: relative;
