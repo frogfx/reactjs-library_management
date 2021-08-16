@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Group = styled.div``;
 
 export const Label = styled.label`
-   font-size: 1.35rem;
+   font-size: 1.3rem;
    color: #767676;
    span {
       margin-left: 0.3rem;
@@ -11,7 +11,7 @@ export const Label = styled.label`
    }
 `;
 
-export const Input = styled.input`
+export const Select = styled.select`
    font-family: "Poppins", sans-serif;
    margin-top: 0.5rem;
    display: block;
@@ -31,7 +31,7 @@ export const Input = styled.input`
 `;
 
 export const Error = styled.p`
-   font-size: 1.05rem;
+   font-size: 1rem;
    color: red;
-   margin: 0.3rem 0;
+   margin: 0.3rem;
 `;

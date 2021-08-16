@@ -4,13 +4,14 @@ import FormTitle from "../FormTitle/FormTitle";
 import * as s from "../StyleForm";
 
 interface PropsCategoryForm {
+   title?: string;
    children?: ReactChild | ReactChild[] | ReactChildren | ReactChildren[];
 }
 
-const CategoryForm: React.FC<PropsCategoryForm> = ({ children }) => {
+const CategoryForm: React.FC<PropsCategoryForm> = ({ title, children }) => {
    return (
       <s.Form>
-         <FormTitle title="Category New" />
+         <FormTitle title={title} />
          <s.FormContent>
             <s.FormRow>
                <s.FormItem>

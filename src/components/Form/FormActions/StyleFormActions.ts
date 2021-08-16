@@ -24,6 +24,7 @@ export const SaveIcon = styled(Save)`
 `;
 
 export const FormActions = styled.div`
+   margin-top: 2rem;
    display: flex;
    justify-content: flex-end;
 `;

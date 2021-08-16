@@ -19,7 +19,7 @@ export const Content = styled.div`
 `;
 
 export const InfoRow = styled.div`
-   margin-bottom: 1.5rem;
+   margin-bottom: 2rem;
    display: flex;
    align-items: center;
    justify-content: space-between;

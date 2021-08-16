@@ -26,7 +26,10 @@ export const Button = styled.button`
    ${(props: PropsButton) =>
       props.typeColor === "danger" &&
       css`
-         background-color: rgb(253, 61, 79);
+         background-color: #d9534f;
+         &:hover {
+            background-color: #b84743;
+         }
       `}
     ${(props: PropsButton) =>
       props.typeColor === "warning" &&
