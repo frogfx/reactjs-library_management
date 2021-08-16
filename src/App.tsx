@@ -11,10 +11,14 @@ import CategoryEdit from "./pages/Category/CategoryEdit/CategoryEdit";
 import CategoryNew from "./pages/Category/CategoryNew/CategoryNew";
 import CategoryPage from "./pages/Category/CategoryPage";
 import DashBoradPage from "./pages/DashBorad/DashBoradPage";
+import ReadersNew from "./pages/Readers/ReadersNew/ReadersNew";
+import ReadersDetail from "./pages/Readers/ReadersDetail/ReadersDetail";
+import ReadersPage from "./pages/Readers/ReadersPage";
 import StaffDetail from "./pages/Staff/StaffDetail/StaffDetail";
 import StaffEdit from "./pages/Staff/StaffEdit/StaffEdit";
 import StaffNew from "./pages/Staff/StaffNew/StaffNew";
 import StaffPage from "./pages/Staff/StaffPage";
+import ReadersEdit from "./pages/Readers/ReadersEdit/ReadersEdit";
 
 const AppRoutes = () => {
    const element = useRoutes([
@@ -45,6 +49,16 @@ const AppRoutes = () => {
             { path: "/new", element: <StaffNew /> },
             { path: "/:id", element: <StaffDetail /> },
             { path: "/:id/edit", element: <StaffEdit /> },
+         ],
+      },
+      {
+         path: "readers",
+         element: <MainLayout />,
+         children: [
+            { path: "/", element: <ReadersPage /> },
+            { path: "/new", element: <ReadersNew /> },
+            { path: "/:id", element: <ReadersDetail /> },
+            { path: "/:id/edit", element: <ReadersEdit /> },
          ],
       },
    ]);
