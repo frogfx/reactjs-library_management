@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
-//import Content from "../../components/Content/Content";
+import Page from "../../components/Page/Page";
 import Header from "../../components/Header/Header";
 import SideBar from "../../components/SideBar/SideBar";
 import * as s from "./StyleMainLayout";
 
 const MainLayout: React.FC = () => {
-   const [isOpenSideBar, setIsOpenSideBar] = useState<boolean>(false);
+   const [isToggle, setIsToggle] = useState<boolean>(false);
    const handleToggleClick = () => {
-      setIsOpenSideBar(!isOpenSideBar);
+      setIsToggle(!isToggle);
    };
    return (
       <s.MainLayout>
-         <Header toggleClick={handleToggleClick} />
-         <SideBar isOpen={isOpenSideBar} />
-         {/* <Content isFull={!isOpenSideBar}>
+         <Header toggleClick={handleToggleClick} isToggle={isToggle} />
+         <SideBar isToggle={isToggle} />
+         <Page isToggle={isToggle}>
             <Outlet />
-         </Content> */}
+         </Page>
       </s.MainLayout>
    );
 };

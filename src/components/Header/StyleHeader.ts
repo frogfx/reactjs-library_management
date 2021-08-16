@@ -1,12 +1,24 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { AlignLeft } from "@styled-icons/fa-solid";
 
+type PropsHeader = {
+   isToggle?: boolean;
+};
+
 export const Header = styled.header`
+   position: relative;
    padding: 1rem 2rem;
    box-shadow: 0 0 2rem 0 rgb(41 48 66 / 10%);
    display: flex;
    align-items: center;
    justify-content: space-between;
+   z-index: 10;
+   transition: all 0.35s ease;
+   ${(props: PropsHeader) =>
+      props.isToggle &&
+      css`
+         margin-left: 25rem;
+      `}
 `;
 
 export const HeaderLeft = styled.div`

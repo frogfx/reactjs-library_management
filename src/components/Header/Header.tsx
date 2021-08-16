@@ -5,11 +5,12 @@ import * as s from "./StyleHeader";
 
 interface PropsHeader {
    toggleClick: Function;
+   isToggle?: boolean;
 }
 
-const Header: React.FC<PropsHeader> = ({ toggleClick }) => {
+const Header: React.FC<PropsHeader> = ({ toggleClick, isToggle }) => {
    return (
-      <s.Header>
+      <s.Header isToggle={isToggle}>
          <s.HeaderLeft>
             <s.Toggle onClick={() => toggleClick()}>
                <s.BarsIcon />

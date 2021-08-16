@@ -3,12 +3,12 @@ import NavBar from "../NavBar/NavBar";
 import * as s from "./StyleSideBar";
 
 interface PropsSideBar {
-   isOpen?: boolean;
+   isToggle?: boolean;
 }
 
-const SideBar: React.FC<PropsSideBar> = ({ isOpen }) => {
+const SideBar: React.FC<PropsSideBar> = ({ isToggle }) => {
    return (
-      <s.SideBar isOpen={isOpen}>
+      <s.SideBar isToggle={isToggle}>
          <NavBar />
       </s.SideBar>
    );

@@ -1,7 +1,13 @@
 import React from "react";
+import PageTitle from "../../components/Page/PageTitle/PageTitle";
+import * as s from "./StyleDashBoradPage";
 
 const DashBoradPage: React.FC = () => {
-   return <div></div>;
+   return (
+      <s.DashBoradPage>
+         <PageTitle title="DashBorad" />
+      </s.DashBoradPage>
+   );
 };
 
 export default DashBoradPage;

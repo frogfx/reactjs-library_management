@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 type PropsSideBar = {
-   isOpen?: boolean;
+   isToggle?: boolean;
 };
 
 export const SideBar = styled.div`
@@ -10,12 +10,14 @@ export const SideBar = styled.div`
    position: fixed;
    height: calc(100% - 9%);
    width: 25rem;
+   min-height: 100vh;
+   top: 0;
    left: -25rem;
    padding: 3rem 0;
    overflow-y: auto;
    transition: all 0.35s ease;
    ${(props: PropsSideBar) =>
-      props.isOpen &&
+      props.isToggle &&
       css`
          left: 0;
       `}
