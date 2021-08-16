@@ -11,6 +11,10 @@ import CategoryEdit from "./pages/Category/CategoryEdit/CategoryEdit";
 import CategoryNew from "./pages/Category/CategoryNew/CategoryNew";
 import CategoryPage from "./pages/Category/CategoryPage";
 import DashBoradPage from "./pages/DashBorad/DashBoradPage";
+import StaffDetail from "./pages/Staff/StaffDetail/StaffDetail";
+import StaffEdit from "./pages/Staff/StaffEdit/StaffEdit";
+import StaffNew from "./pages/Staff/StaffNew/StaffNew";
+import StaffPage from "./pages/Staff/StaffPage";
 
 const AppRoutes = () => {
    const element = useRoutes([
@@ -31,6 +35,16 @@ const AppRoutes = () => {
             { path: "/category/new", element: <CategoryNew /> },
             { path: "/category/:id", element: <CategoryDetail /> },
             { path: "/category/:id/edit", element: <CategoryEdit /> },
+         ],
+      },
+      {
+         path: "staff",
+         element: <MainLayout />,
+         children: [
+            { path: "/", element: <StaffPage /> },
+            { path: "/new", element: <StaffNew /> },
+            { path: "/:id", element: <StaffDetail /> },
+            { path: "/:id/edit", element: <StaffEdit /> },
          ],
       },
    ]);
