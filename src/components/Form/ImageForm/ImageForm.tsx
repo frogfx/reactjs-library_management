@@ -1,27 +1,27 @@
 import React, { ReactChild, ReactChildren } from "react";
-import InputGroup from "../../InputGroup/InputGroup";
+import ChoseFile from "../../ChoseFile/ChoseFile";
+import ImageInfo from "../../Info/ProfileInfo/ImageInfo/ImageInfo";
 import FormTitle from "../FormTitle/FormTitle";
 import * as s from "../StyleForm";
 
-interface PropsCategoryForm {
+interface PropsImageForm {
    title?: string;
    children?: ReactChild | ReactChild[] | ReactChildren | ReactChildren[];
 }
 
-const CategoryForm: React.FC<PropsCategoryForm> = ({ title, children }) => {
+const ImageForm: React.FC<PropsImageForm> = ({ title, children }) => {
    return (
       <s.Form>
          <FormTitle title={title} />
          <s.FormContent>
-            <s.FormRow>
-               <s.FormItem isFull>
-                  <InputGroup label="Name" placeholder="Category name" isNull />
-               </s.FormItem>
-            </s.FormRow>
+            <s.FormImage>
+               <ImageInfo medium />
+               <ChoseFile />
+            </s.FormImage>
             {children}
          </s.FormContent>
       </s.Form>
    );
 };
 
-export default CategoryForm;
+export default ImageForm;

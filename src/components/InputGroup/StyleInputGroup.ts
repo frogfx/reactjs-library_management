@@ -28,6 +28,10 @@ export const Input = styled.input`
    &::placeholder {
       color: #c4c4c4;
    }
+   &:focus {
+      border-color: #9fc0f5;
+      box-shadow: 0 0 0 0.2rem rgb(63 128 234 / 25%);
+   }
 `;
 
 export const Error = styled.p`

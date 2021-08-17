@@ -1,6 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { TrashAlt } from "@styled-icons/fa-regular";
 import { Plus } from "@styled-icons/fa-solid";
+
+type PropsFormItem = {
+   isFull?: boolean;
+};
 
 export const TrashIcon = styled(TrashAlt)`
    width: 1.4rem;
@@ -34,13 +38,18 @@ export const FormContent = styled.form`
 `;
 
 export const FormRow = styled.div`
-   margin-top: 0.5rem;
+   margin-bottom: 1.5rem;
    display: flex;
    justify-content: space-between;
 `;
 
 export const FormItem = styled.div`
    width: calc(50% - 1rem);
+   ${(props: PropsFormItem) =>
+      props.isFull &&
+      css`
+         width: calc(100%);
+      `}
 `;
 
 export const TableTitle = styled.h3`
@@ -66,4 +75,10 @@ export const IsLost = styled.input`
 
 export const FormRowInfo = styled(FormRow)`
    margin: 2rem 0;
+`;
+
+export const FormImage = styled.div`
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 `;

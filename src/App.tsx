@@ -1,6 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, useRoutes } from "react-router-dom";
 import "./App.css";
+import { BrowserRouter as Router, useRoutes } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout/MainLayout";
 import BookDetail from "./pages/Book/BookDetail/BookDetail";
 import BookEdit from "./pages/Book/BookEdit/BookEdit";
@@ -19,6 +19,9 @@ import StaffEdit from "./pages/Staff/StaffEdit/StaffEdit";
 import StaffNew from "./pages/Staff/StaffNew/StaffNew";
 import StaffPage from "./pages/Staff/StaffPage";
 import ReadersEdit from "./pages/Readers/ReadersEdit/ReadersEdit";
+import ProfilePage from "./pages/Profile/ProfilePage";
+import ChangePassword from "./pages/Profile/ChangePassword/ChangePassword";
+import ChangeImage from "./pages/Profile/ChangeImage/ChangeImage";
 
 const AppRoutes = () => {
    const element = useRoutes([
@@ -59,6 +62,15 @@ const AppRoutes = () => {
             { path: "/new", element: <ReadersNew /> },
             { path: "/:id", element: <ReadersDetail /> },
             { path: "/:id/edit", element: <ReadersEdit /> },
+         ],
+      },
+      {
+         path: "profile",
+         element: <MainLayout />,
+         children: [
+            { path: "/", element: <ProfilePage /> },
+            { path: "/password", element: <ChangePassword /> },
+            { path: "/image", element: <ChangeImage /> },
          ],
       },
    ]);
