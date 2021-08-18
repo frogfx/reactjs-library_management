@@ -1,15 +1,20 @@
 import styled, { css } from "styled-components";
 import { TrashAlt } from "@styled-icons/fa-regular";
 import { Plus } from "@styled-icons/fa-solid";
+import { Table } from "../Table/StyleTable";
 
 type PropsFormItem = {
    isFull?: boolean;
 };
 
 export const TrashIcon = styled(TrashAlt)`
-   width: 1.4rem;
-   height: 1.4rem;
-   color: rgb(253, 61, 79);
+   width: 1.7rem;
+   height: 1.7rem;
+   color: #6c757d;
+   transition: all 0.25s linear;
+   &:hover {
+      color: #212529;
+   }
 `;
 
 export const PlusIcon = styled(Plus)`
@@ -65,8 +70,9 @@ export const FormTableTop = styled.div`
    margin-bottom: 1rem;
 `;
 
-export const FormTable = styled.div`
-   margin: 3rem 0;
+export const FormTable = styled(Table)`
+   padding: 1.5rem 0;
+   box-shadow: 0 0 0 0;
 `;
 
 export const IsLost = styled.input`

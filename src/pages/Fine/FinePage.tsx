@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Table from "../../components/Table/Table";
 import Tr from "../../components/Table/Tr/Tr";
 import Th from "../../components/Table/Th/Th";
-import * as s from "./StyleReadersPage";
+import * as s from "./StyleFinePage";
 import Td from "../../components/Table/Td/Td";
 import PageTitle from "../../components/Page/PageTitle/PageTitle";
 import TableLabel from "../../components/Table/TableLabel/TableLabel";
@@ -15,34 +15,34 @@ import TableActions from "../../components/Table/TableActions/TableActions";
 import TableDes from "../../components/Table/TableDes/TableDes";
 import TablePagination from "../../components/Table/TablePagination/TablePagination";
 
-const ReadersPage: React.FC = () => {
+const FinePage: React.FC = () => {
    return (
-      <s.ReadersPage>
-         <PageTitle title="Readers Manage" />
+      <s.FinePage>
+         <PageTitle title="Fine Receipt Manage" />
          <Table>
             <TableLabel>
-               <TableTitle title="Readers List" />
-               <TableDes des="Here is a brief infomation of the Readers. Click on the Eye icon to see details." />
+               <TableTitle title="Fine List" />
+               <TableDes des="Here is a brief infomation of Fine of the Readers. Click on the Eye icon to see details." />
             </TableLabel>
             <TableActions />
             <TableContent>
                <Thead>
                   <Tr>
                      <Th width="3.5">No.</Th>
-                     <Th>ID</Th>
-                     <Th>Name</Th>
-                     <Th>Category</Th>
-                     <Th>Address</Th>
+                     <Th>Reader Name</Th>
+                     <Th>Debt</Th>
+                     <Th>Payment</Th>
+                     <Th>Remaining</Th>
                      <Th isCenter>Actions</Th>
                   </Tr>
                </Thead>
                <Tbody>
                   <Tr>
                      <Td isCenter>1</Td>
-                     <Td>S000001</Td>
                      <Td>Nguyễn Văn A</Td>
-                     <Td>A</Td>
-                     <Td>Quận 5</Td>
+                     <Td>50.000 VND</Td>
+                     <Td>30.000 VND</Td>
+                     <Td>20.000 VND</Td>
                      <Td isCenter>
                         <Link to="1">
                            <s.EyeIcon />
@@ -51,10 +51,10 @@ const ReadersPage: React.FC = () => {
                   </Tr>
                   <Tr>
                      <Td isCenter>2</Td>
-                     <Td>S000002</Td>
                      <Td>Nguyễn Văn B</Td>
-                     <Td>B</Td>
-                     <Td>Quận 7</Td>
+                     <Td>40.000 VND</Td>
+                     <Td>30.000 VND</Td>
+                     <Td>10.000 VND</Td>
                      <Td isCenter>
                         <Link to="1">
                            <s.EyeIcon />
@@ -65,8 +65,8 @@ const ReadersPage: React.FC = () => {
             </TableContent>
             <TablePagination />
          </Table>
-      </s.ReadersPage>
+      </s.FinePage>
    );
 };
 
-export default ReadersPage;
+export default FinePage;

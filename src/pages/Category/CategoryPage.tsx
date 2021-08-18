@@ -10,7 +10,7 @@ import TableLabel from "../../components/Table/TableLabel/TableLabel";
 import TableTitle from "../../components/Table/TableTitle/TableTitle";
 import TableContent from "../../components/Table/TableContent/TableContent";
 import Thead from "../../components/Table/Thead/Thead";
-import { Tbody } from "../../components/Table/StyleTable";
+import Tbody from "../../components/Table/Tbody/Tbody";
 import TableActions from "../../components/Table/TableActions/TableActions";
 import TableDes from "../../components/Table/TableDes/TableDes";
 import TablePagination from "../../components/Table/TablePagination/TablePagination";
@@ -22,7 +22,7 @@ const CategoryPage: React.FC = () => {
          <Table>
             <TableLabel>
                <TableTitle title="Category List" />
-               <TableDes des="Here is a brief infomation of the genre of the book. Click on the Eye icon to see details." />
+               <TableDes des="Here is infomation of the genre of the book." />
             </TableLabel>
             <TableActions />
             <TableContent>

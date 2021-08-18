@@ -22,6 +22,14 @@ import ReadersEdit from "./pages/Readers/ReadersEdit/ReadersEdit";
 import ProfilePage from "./pages/Profile/ProfilePage";
 import ChangePassword from "./pages/Profile/ChangePassword/ChangePassword";
 import ChangeImage from "./pages/Profile/ChangeImage/ChangeImage";
+import FinePage from "./pages/Fine/FinePage";
+import FineDetail from "./pages/Fine/FineDetail/FineDetail";
+import FineNew from "./pages/Fine/FineNew/FineNew";
+import FineEdit from "./pages/Fine/FineEdit/FineEdit";
+import BorrowPage from "./pages/Borrow/BorrowPage";
+import BorrowNew from "./pages/Borrow/BorrowNew/BorrowNew";
+import BorrowDetail from "./pages/Borrow/BorrowDetail/BorrowDetail";
+import BorrowEdit from "./pages/Borrow/BorrowEdit/BorrowEdit";
 
 const AppRoutes = () => {
    const element = useRoutes([
@@ -31,17 +39,23 @@ const AppRoutes = () => {
          children: [{ path: "/", element: <DashBoradPage /> }],
       },
       {
-         path: "book-manage",
+         path: "book-manage/book",
          element: <MainLayout />,
          children: [
-            { path: "/book", element: <BookPage /> },
-            { path: "/book/new", element: <BookNew /> },
-            { path: "/book/:id", element: <BookDetail /> },
-            { path: "/book/:id/edit", element: <BookEdit /> },
-            { path: "/category", element: <CategoryPage /> },
-            { path: "/category/new", element: <CategoryNew /> },
-            { path: "/category/:id", element: <CategoryDetail /> },
-            { path: "/category/:id/edit", element: <CategoryEdit /> },
+            { path: "/", element: <BookPage /> },
+            { path: "/new", element: <BookNew /> },
+            { path: "/:id", element: <BookDetail /> },
+            { path: "/:id/edit", element: <BookEdit /> },
+         ],
+      },
+      {
+         path: "book-manage/category",
+         element: <MainLayout />,
+         children: [
+            { path: "/", element: <CategoryPage /> },
+            { path: "/new", element: <CategoryNew /> },
+            { path: "/:id", element: <CategoryDetail /> },
+            { path: "/:id/edit", element: <CategoryEdit /> },
          ],
       },
       {
@@ -71,6 +85,26 @@ const AppRoutes = () => {
             { path: "/", element: <ProfilePage /> },
             { path: "/password", element: <ChangePassword /> },
             { path: "/image", element: <ChangeImage /> },
+         ],
+      },
+      {
+         path: "receipt-manage/fine",
+         element: <MainLayout />,
+         children: [
+            { path: "/", element: <FinePage /> },
+            { path: "/new", element: <FineNew /> },
+            { path: "/:id", element: <FineDetail /> },
+            { path: "/:id/edit", element: <FineEdit /> },
+         ],
+      },
+      {
+         path: "receipt-manage/borrow",
+         element: <MainLayout />,
+         children: [
+            { path: "/", element: <BorrowPage /> },
+            { path: "/new", element: <BorrowNew /> },
+            { path: "/:id", element: <BorrowDetail /> },
+            { path: "/:id/edit", element: <BorrowEdit /> },
          ],
       },
    ]);
