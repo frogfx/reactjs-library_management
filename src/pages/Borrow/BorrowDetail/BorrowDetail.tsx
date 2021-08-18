@@ -1,13 +1,13 @@
 import React from "react";
 import * as s from "./StyleBorrowDetail";
 import PageTitle from "../../../components/Page/PageTitle/PageTitle";
-import CategoryInfo from "../../../components/Info/CategoryInfo/CategoryInfo";
+import BorrowInfo from "../../../components/Info/BorrowInfo/BorrowInfo";
 
 const BorrowDetail: React.FC = () => {
    return (
       <s.BorrowDetail>
          <PageTitle title="Borrow Manage" />
-         <CategoryInfo />
+         <BorrowInfo />
       </s.BorrowDetail>
    );
 };

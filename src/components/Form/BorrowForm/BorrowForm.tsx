@@ -18,9 +18,14 @@ import Td from "../../Table/Td/Td";
 interface PropsBorrowForm {
    title?: string;
    children?: ReactChild | ReactChild[] | ReactChildren | ReactChildren[];
+   openModalAddBook: Function;
 }
 
-const BorrowForm: React.FC<PropsBorrowForm> = ({ title, children }) => {
+const BorrowForm: React.FC<PropsBorrowForm> = ({
+   title,
+   children,
+   openModalAddBook,
+}) => {
    return (
       <s.Form>
          <FormTitle title={title} />
@@ -45,7 +50,10 @@ const BorrowForm: React.FC<PropsBorrowForm> = ({ title, children }) => {
                   <TableTitle title="Book List" />
                   <TableDes des="Click the add button to add the book to the list." />
                </TableLabel>
-               <TableActions />
+               <s.FormTableAdd onClick={() => openModalAddBook()} type="button">
+                  <s.PlusIcon />
+                  Add
+               </s.FormTableAdd>
                <TableContent>
                   <Thead>
                      <Tr>

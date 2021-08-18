@@ -14,6 +14,7 @@ export const LeftIcon = styled(LongArrowAltLeft)`
 `;
 
 export const InfoAction = styled.div`
+   margin-top: 2rem;
    display: flex;
    justify-content: flex-end;
 `;

@@ -27,7 +27,7 @@ export const Table = styled.div`
 `;
 
 export const Label = styled.div`
-   padding: 1rem 1.5rem;
+   padding: 1rem 0;
 `;
 
 export const Des = styled.p`
@@ -46,7 +46,6 @@ export const Actions = styled.div`
    display: flex;
    align-items: center;
    justify-content: space-between;
-   padding: 0 1.5rem;
    margin: 2.5rem 0 1rem;
 `;
 

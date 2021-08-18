@@ -18,13 +18,13 @@ export const TrashIcon = styled(TrashAlt)`
 `;
 
 export const PlusIcon = styled(Plus)`
-   width: 1.5rem;
-   height: 1.5rem;
-   color: #fff;
+   width: 1.2rem;
+   height: 1.2rem;
    margin-right: 0.5rem;
 `;
 
 export const Form = styled.div`
+   position: relative;
    width: 100%;
    background-color: #fff;
    box-shadow: 0 0 0.875rem 0 rgb(41 48 66 / 5%);
@@ -73,6 +73,21 @@ export const FormTableTop = styled.div`
 export const FormTable = styled(Table)`
    padding: 1.5rem 0;
    box-shadow: 0 0 0 0;
+`;
+
+export const FormTableAdd = styled.button`
+   font-family: "Poppins", sans-serif;
+   line-height: 1.2;
+   color: #fff;
+   padding: 0.7rem 1rem;
+   font-size: 1.2rem;
+   border-radius: 2px;
+   background-color: #3f80ea;
+   transition: all 0.25s linear;
+   border: none;
+   &:hover {
+      background-color: #3266bb;
+   }
 `;
 
 export const IsLost = styled.input`

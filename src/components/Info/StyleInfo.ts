@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Table } from "../Table/StyleTable";
 
 export const Info = styled.div`
    width: 100%;
@@ -29,8 +30,9 @@ export const InfoItem = styled.div`
    width: calc(50% - 1rem);
 `;
 
-export const Table = styled.div`
-   margin: 2rem 0;
+export const InfoTable = styled(Table)`
+   padding: 1.5rem 0;
+   box-shadow: 0 0 0 0;
 `;
 
 export const TableTitle = styled.h3`
