@@ -37,21 +37,29 @@ import ReturnsEdit from "./pages/Returns/ReturnsEdit/ReturnsEdit";
 import EmtpyLayout from "./layouts/EmtpyLayout/EmtpyLayout";
 import LoginPage from "./pages/Login/LoginPage";
 import ResetPassPage from "./pages/ResetPass/ResetPassPage";
+import NotFoundPage from "./pages/NotFound/NotFoundPage";
 
 const AppRoutes = () => {
    const element = useRoutes([
       {
          path: "",
-         element: <EmtpyLayout />,
-         children: [
-            { path: "/login", element: <LoginPage /> },
-            { path: "/reset-password", element: <ResetPassPage /> },
-         ],
-      },
-      {
-         path: "",
          element: <MainLayout />,
          children: [{ path: "/", element: <DashBoradPage /> }],
+      },
+      {
+         path: "/login",
+         element: <EmtpyLayout />,
+         children: [{ path: "/", element: <LoginPage /> }],
+      },
+      {
+         path: "/reset-password",
+         element: <EmtpyLayout />,
+         children: [{ path: "/", element: <ResetPassPage /> }],
+      },
+      {
+         path: "/404",
+         element: <EmtpyLayout />,
+         children: [{ path: "/", element: <NotFoundPage /> }],
       },
       {
          path: "book-manage/book",
