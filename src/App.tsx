@@ -34,9 +34,20 @@ import ReturnsPage from "./pages/Returns/ReturnsPage";
 import ReturnsDetail from "./pages/Returns/ReturnsDetail/ReturnsDetail";
 import ReturnsNew from "./pages/Returns/ReturnsNew/ReturnsNew";
 import ReturnsEdit from "./pages/Returns/ReturnsEdit/ReturnsEdit";
+import EmtpyLayout from "./layouts/EmtpyLayout/EmtpyLayout";
+import LoginPage from "./pages/Login/LoginPage";
+import ResetPassPage from "./pages/ResetPass/ResetPassPage";
 
 const AppRoutes = () => {
    const element = useRoutes([
+      {
+         path: "",
+         element: <EmtpyLayout />,
+         children: [
+            { path: "/login", element: <LoginPage /> },
+            { path: "/reset-password", element: <ResetPassPage /> },
+         ],
+      },
       {
          path: "",
          element: <MainLayout />,
