@@ -11,8 +11,8 @@ const BorrowNew: React.FC = () => {
    const closeModal = () => setIsOpenModal(false);
    return (
       <s.BorrowNew>
-         <PageTitle title="Borrow Manage" />
-         <BorrowForm openModalAddBook={openModal} title="Borrow New">
+         <PageTitle title="Borrow Receipt Manage" />
+         <BorrowForm openModalAddBook={openModal} title="Borrow Receipt New">
             <FormActionNew />
             <ModalAdd
                title="Book"

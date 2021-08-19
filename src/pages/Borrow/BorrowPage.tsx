@@ -18,11 +18,11 @@ import TablePagination from "../../components/Table/TablePagination/TablePaginat
 const BorrowPage: React.FC = () => {
    return (
       <s.BorrowPage>
-         <PageTitle title="Borrow Manage" />
+         <PageTitle title="Borrow Receipt Manage" />
          <Table>
             <TableLabel>
                <TableTitle title="Borrow List" />
-               <TableDes des="Here is a brief infomation of the Borrow. Click on the Eye icon to see details." />
+               <TableDes des="Here is a brief infomation of the Borrow Receipt. Click on the Eye icon to see details." />
             </TableLabel>
             <TableActions />
             <TableContent>
@@ -48,7 +48,7 @@ const BorrowPage: React.FC = () => {
                            </Link>
                         </s.Action>
                         <s.Action>
-                           <Link to="1/return">
+                           <Link to="1/returns">
                               <s.ClipboardIcon />
                            </Link>
                         </s.Action>
@@ -66,7 +66,7 @@ const BorrowPage: React.FC = () => {
                            </Link>
                         </s.Action>
                         <s.Action>
-                           <Link to="1/return">
+                           <Link to="1/returns">
                               <s.ClipboardIcon />
                            </Link>
                         </s.Action>

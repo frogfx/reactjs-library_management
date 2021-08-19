@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Table from "../../components/Table/Table";
 import Tr from "../../components/Table/Tr/Tr";
 import Th from "../../components/Table/Th/Th";
-import * as s from "./StyleFinePage";
+import * as s from "./StyleReturnsPage";
 import Td from "../../components/Table/Td/Td";
 import PageTitle from "../../components/Page/PageTitle/PageTitle";
 import TableLabel from "../../components/Table/TableLabel/TableLabel";
@@ -15,24 +15,22 @@ import TableActions from "../../components/Table/TableActions/TableActions";
 import TableDes from "../../components/Table/TableDes/TableDes";
 import TablePagination from "../../components/Table/TablePagination/TablePagination";
 
-const FinePage: React.FC = () => {
+const ReturnsPage: React.FC = () => {
    return (
-      <s.FinePage>
-         <PageTitle title="Fine Receipt Manage" />
+      <s.ReturnsPage>
+         <PageTitle title="Returns Receipt Manage" />
          <Table>
             <TableLabel>
-               <TableTitle title="Fine List" />
-               <TableDes des="Here is a brief infomation of the Fine Receipt. Click on the Eye icon to see details." />
+               <TableTitle title="Returns List" />
+               <TableDes des="Here is a brief infomation of the Returns Receipt. Click on the Eye icon to see details." />
             </TableLabel>
-            <TableActions />
             <TableContent>
                <Thead>
                   <Tr>
                      <Th width="3.5">No.</Th>
-                     <Th>Reader Name</Th>
-                     <Th>Debt</Th>
-                     <Th>Payment</Th>
-                     <Th>Remaining</Th>
+                     <Th>Reader</Th>
+                     <Th>Return Date</Th>
+                     <Th>Status</Th>
                      <Th isCenter>Actions</Th>
                   </Tr>
                </Thead>
@@ -40,9 +38,8 @@ const FinePage: React.FC = () => {
                   <Tr>
                      <Td isCenter>1</Td>
                      <Td>Nguyễn Văn A</Td>
-                     <Td>50.000 VND</Td>
-                     <Td>30.000 VND</Td>
-                     <Td>20.000 VND</Td>
+                     <Td>07/30/2021</Td>
+                     <Td>Late</Td>
                      <Td isCenter>
                         <Link to="1">
                            <s.EyeIcon />
@@ -52,9 +49,8 @@ const FinePage: React.FC = () => {
                   <Tr>
                      <Td isCenter>2</Td>
                      <Td>Nguyễn Văn B</Td>
-                     <Td>40.000 VND</Td>
-                     <Td>30.000 VND</Td>
-                     <Td>10.000 VND</Td>
+                     <Td>07/30/2021</Td>
+                     <Td>On Time</Td>
                      <Td isCenter>
                         <Link to="1">
                            <s.EyeIcon />
@@ -65,8 +61,8 @@ const FinePage: React.FC = () => {
             </TableContent>
             <TablePagination />
          </Table>
-      </s.FinePage>
+      </s.ReturnsPage>
    );
 };
 
-export default FinePage;
+export default ReturnsPage;

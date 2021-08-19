@@ -6,7 +6,7 @@ import * as s from "../StyleInfo";
 const FineInfo: React.FC = () => {
    return (
       <s.Info>
-         <s.Title>Fine Detail</s.Title>
+         <s.Title>Fine Receipt Detail</s.Title>
          <s.Content>
             <s.InfoRow>
                <s.InfoItem>

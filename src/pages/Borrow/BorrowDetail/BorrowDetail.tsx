@@ -6,7 +6,7 @@ import BorrowInfo from "../../../components/Info/BorrowInfo/BorrowInfo";
 const BorrowDetail: React.FC = () => {
    return (
       <s.BorrowDetail>
-         <PageTitle title="Borrow Manage" />
+         <PageTitle title="Borrow Receipt Manage" />
          <BorrowInfo />
       </s.BorrowDetail>
    );

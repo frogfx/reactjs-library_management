@@ -6,7 +6,7 @@ import FineInfo from "../../../components/Info/FineInfo/FineInfo";
 const FineDetail: React.FC = () => {
    return (
       <s.FineDetail>
-         <PageTitle title="Fine Manage" />
+         <PageTitle title="Fine Receipt Manage" />
          <FineInfo />
       </s.FineDetail>
    );

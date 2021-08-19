@@ -30,6 +30,10 @@ import BorrowPage from "./pages/Borrow/BorrowPage";
 import BorrowNew from "./pages/Borrow/BorrowNew/BorrowNew";
 import BorrowDetail from "./pages/Borrow/BorrowDetail/BorrowDetail";
 import BorrowEdit from "./pages/Borrow/BorrowEdit/BorrowEdit";
+import ReturnsPage from "./pages/Returns/ReturnsPage";
+import ReturnsDetail from "./pages/Returns/ReturnsDetail/ReturnsDetail";
+import ReturnsNew from "./pages/Returns/ReturnsNew/ReturnsNew";
+import ReturnsEdit from "./pages/Returns/ReturnsEdit/ReturnsEdit";
 
 const AppRoutes = () => {
    const element = useRoutes([
@@ -105,6 +109,16 @@ const AppRoutes = () => {
             { path: "/new", element: <BorrowNew /> },
             { path: "/:id", element: <BorrowDetail /> },
             { path: "/:id/edit", element: <BorrowEdit /> },
+            { path: "/:id/returns", element: <ReturnsNew /> },
+         ],
+      },
+      {
+         path: "receipt-manage/returns",
+         element: <MainLayout />,
+         children: [
+            { path: "/", element: <ReturnsPage /> },
+            { path: "/:id", element: <ReturnsDetail /> },
+            { path: "/:id/edit", element: <ReturnsEdit /> },
          ],
       },
    ]);

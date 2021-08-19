@@ -7,7 +7,7 @@ import FormActionNew from "../../../components/Form/FormActions/FormActionNew/Fo
 const FineEdit: React.FC = () => {
    return (
       <s.FineEdit>
-         <PageTitle title="Fine Manage" />
+         <PageTitle title="Fine Receipt Manage" />
          <FineForm title="Fine Edit">
             <FormActionNew />
          </FineForm>

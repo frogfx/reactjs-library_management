@@ -65,7 +65,9 @@ export const Content = styled.table`
    width: 100%;
 `;
 
-export const Tbody = styled.tbody``;
+export const Tbody = styled.tbody`
+   border-top: 1.5px solid #6c757d;
+`;
 
 export const Tr = styled.tr`
    border-bottom: 0.5px solid #dee6ed;
@@ -75,10 +77,13 @@ export const Tr = styled.tr`
 `;
 
 export const Thead = styled.thead`
-   border-bottom: 1.5px solid #6c757d;
    ${Tr} {
       background-color: transparent;
    }
+`;
+
+export const Tfoot = styled.tfoot`
+   border-top: 1.5px solid #6c757d;
 `;
 
 export const Th = styled.th`
