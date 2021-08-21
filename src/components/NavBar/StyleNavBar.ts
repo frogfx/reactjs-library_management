@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import {
    Home,
    UserTie,
@@ -7,9 +7,6 @@ import {
    TachometerAlt,
 } from "@styled-icons/fa-solid";
 import { AddressCard, AddressBook } from "@styled-icons/fa-regular";
-import { Link } from "react-router-dom";
-
-type PropsNavBarItem = { isActice?: boolean };
 
 export const TachometerIcon = styled(TachometerAlt)`
    width: 2rem;

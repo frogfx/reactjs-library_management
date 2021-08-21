@@ -9,6 +9,10 @@ interface PropsSideBar {
 const SideBar: React.FC<PropsSideBar> = ({ isToggle }) => {
    return (
       <s.SideBar isToggle={isToggle}>
+         <s.Logo>
+            <s.BookIcon />
+            <span>AppLibrary</span>
+         </s.Logo>
          <NavBar />
       </s.SideBar>
    );
