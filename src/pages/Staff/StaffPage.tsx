@@ -29,9 +29,9 @@ const StaffPage: React.FC = () => {
                <Thead>
                   <Tr>
                      <Th width="3.5">No.</Th>
-                     <Th>ID</Th>
+                     <Th isHidden>ID</Th>
                      <Th>Name</Th>
-                     <Th>Address</Th>
+                     <Th isHidden>Address</Th>
                      <Th>Role</Th>
                      <Th isCenter>Actions</Th>
                   </Tr>
@@ -39,9 +39,9 @@ const StaffPage: React.FC = () => {
                <Tbody>
                   <Tr>
                      <Td isCenter>1</Td>
-                     <Td>S000001</Td>
+                     <Td isHidden>S000001</Td>
                      <Td>Nguyễn Văn A</Td>
-                     <Td>Quận 5</Td>
+                     <Td isHidden>Quận 5</Td>
                      <Td>Thủ thư</Td>
                      <Td isCenter>
                         <Link to="1">
@@ -51,9 +51,9 @@ const StaffPage: React.FC = () => {
                   </Tr>
                   <Tr>
                      <Td isCenter>2</Td>
-                     <Td>S000002</Td>
+                     <Td isHidden>S000002</Td>
                      <Td>Nguyễn Văn B</Td>
-                     <Td>Quận 7</Td>
+                     <Td isHidden>Quận 7</Td>
                      <Td>Thủ kho</Td>
                      <Td isCenter>
                         <Link to="1">

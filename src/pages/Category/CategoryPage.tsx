@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Table from "../../components/Table/Table";
 import Tr from "../../components/Table/Tr/Tr";
 import Th from "../../components/Table/Th/Th";
@@ -29,7 +28,7 @@ const CategoryPage: React.FC = () => {
                <Thead>
                   <Tr>
                      <Th width="3.5">No.</Th>
-                     <Th>ID</Th>
+                     <Th isHidden>ID</Th>
                      <Th>Name</Th>
                      <Th isCenter>Actions</Th>
                   </Tr>
@@ -37,7 +36,7 @@ const CategoryPage: React.FC = () => {
                <Tbody>
                   <Tr>
                      <Td isCenter>1</Td>
-                     <Td>C000001</Td>
+                     <Td isHidden>C000001</Td>
                      <Td>Công nghệ thông tin</Td>
                      <Td isCenter>
                         <s.Action>
@@ -50,7 +49,7 @@ const CategoryPage: React.FC = () => {
                   </Tr>
                   <Tr>
                      <Td isCenter>2</Td>
-                     <Td>C000002</Td>
+                     <Td isHidden>C000002</Td>
                      <Td>Khoa học máy tính</Td>
                      <Td isCenter>
                         <s.Action>

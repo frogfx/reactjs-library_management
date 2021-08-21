@@ -20,14 +20,22 @@ export const Content = styled.div`
 `;
 
 export const InfoRow = styled.div`
-   margin-bottom: 2rem;
    display: flex;
    align-items: center;
    justify-content: space-between;
+   flex-wrap: wrap;
+   margin-bottom: 2rem;
+   @media (max-width: 1024px) {
+      margin-bottom: 0;
+   }
 `;
 
 export const InfoItem = styled.div`
    width: calc(50% - 1rem);
+   @media (max-width: 1024px) {
+      width: 100%;
+      margin-bottom: 2rem;
+   }
 `;
 
 export const InfoTable = styled(Table)`

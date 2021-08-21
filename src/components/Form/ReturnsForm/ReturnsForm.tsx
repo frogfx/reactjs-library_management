@@ -1,7 +1,5 @@
 import React, { ReactChild, ReactChildren } from "react";
-import { Link } from "react-router-dom";
 import InputGroup from "../../InputGroup/InputGroup";
-import SelectGroup from "../../SelectGroup/SelectGroup";
 import FormTitle from "../FormTitle/FormTitle";
 import * as s from "../StyleForm";
 import TableLabel from "../../Table/TableLabel/TableLabel";
@@ -33,6 +31,8 @@ const ReturnsForm: React.FC<PropsReturnsForm> = ({ title, children }) => {
                <s.FormItem>
                   <InfoGroup name="Reader Name" value="Nguyễn Văn A" />
                </s.FormItem>
+            </s.FormRow>
+            <s.FormRow>
                <s.FormItem>
                   <InfoGroup name="Borrow Date" value="07/30/2021" />
                </s.FormItem>

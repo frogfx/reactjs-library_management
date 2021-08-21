@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
-type PropsNavLink = { isActice?: boolean };
+type PropsNav = { isActice?: boolean };
 
 export const NavLink = styled(Link)`
    position: relative;
@@ -32,12 +32,17 @@ export const NavLink = styled(Link)`
       transform: translateY(-50%);
       transition: all 0.25s linear;
    }
-   ${(props: PropsNavLink) =>
+`;
+
+export const Nav = styled.div`
+   ${(props: PropsNav) =>
       props.isActice &&
       css`
-         color: #e9ecef;
-         &::before {
-            background-color: rgb(63, 128, 234);
+         ${NavLink} {
+            color: #e9ecef;
+            &::before {
+               background-color: rgb(63, 128, 234);
+            }
          }
       `};
 `;

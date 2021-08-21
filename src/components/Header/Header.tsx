@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import UserAccount from "../UserAccount/UserAccount";
 import * as s from "./StyleHeader";
@@ -15,7 +16,9 @@ const Header: React.FC<PropsHeader> = ({ toggleClick, isToggle }) => {
             <s.Toggle onClick={() => toggleClick()}>
                <s.BarsIcon />
             </s.Toggle>
-            <Logo />
+            <Link to="/">
+               <Logo />
+            </Link>
          </s.HeaderLeft>
          <UserAccount />
       </s.Header>

@@ -11,7 +11,6 @@ import TableTitle from "../../components/Table/TableTitle/TableTitle";
 import TableContent from "../../components/Table/TableContent/TableContent";
 import Thead from "../../components/Table/Thead/Thead";
 import Tbody from "../../components/Table/Tbody/Tbody";
-import TableActions from "../../components/Table/TableActions/TableActions";
 import TableDes from "../../components/Table/TableDes/TableDes";
 import TablePagination from "../../components/Table/TablePagination/TablePagination";
 
@@ -30,7 +29,7 @@ const ReturnsPage: React.FC = () => {
                      <Th width="3.5">No.</Th>
                      <Th>Reader</Th>
                      <Th>Return Date</Th>
-                     <Th>Status</Th>
+                     <Th isHidden>Status</Th>
                      <Th isCenter>Actions</Th>
                   </Tr>
                </Thead>
@@ -39,7 +38,7 @@ const ReturnsPage: React.FC = () => {
                      <Td isCenter>1</Td>
                      <Td>Nguyễn Văn A</Td>
                      <Td>07/30/2021</Td>
-                     <Td>Late</Td>
+                     <Td isHidden>Late</Td>
                      <Td isCenter>
                         <Link to="1">
                            <s.EyeIcon />
@@ -50,7 +49,7 @@ const ReturnsPage: React.FC = () => {
                      <Td isCenter>2</Td>
                      <Td>Nguyễn Văn B</Td>
                      <Td>07/30/2021</Td>
-                     <Td>On Time</Td>
+                     <Td isHidden>On Time</Td>
                      <Td isCenter>
                         <Link to="1">
                            <s.EyeIcon />

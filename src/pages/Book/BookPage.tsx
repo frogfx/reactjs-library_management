@@ -29,20 +29,20 @@ const BookPage: React.FC = () => {
                <Thead>
                   <Tr>
                      <Th width="3.5">No.</Th>
-                     <Th>ID</Th>
+                     <Th isHidden>ID</Th>
                      <Th>Name</Th>
                      <Th>Category</Th>
-                     <Th>Author</Th>
+                     <Th isHidden>Author</Th>
                      <Th isCenter>Actions</Th>
                   </Tr>
                </Thead>
                <Tbody>
                   <Tr>
                      <Td isCenter>1</Td>
-                     <Td>C000001</Td>
+                     <Td isHidden>C000001</Td>
                      <Td>Nhập môn lập trình</Td>
                      <Td>Công nghệ phần mềm</Td>
-                     <Td>University</Td>
+                     <Td isHidden>KHTN University</Td>
                      <Td isCenter>
                         <Link to="1">
                            <s.EyeIcon />
@@ -51,10 +51,10 @@ const BookPage: React.FC = () => {
                   </Tr>
                   <Tr>
                      <Td isCenter>2</Td>
-                     <Td>C000002</Td>
+                     <Td isHidden>C000002</Td>
                      <Td>Ẩn dữ liệu và chia sẻ thông tin</Td>
                      <Td>Khoa học máy tính</Td>
-                     <Td>University</Td>
+                     <Td isHidden>KHTN University</Td>
                      <Td isCenter>
                         <Link to="1">
                            <s.EyeIcon />

@@ -7,6 +7,7 @@ type PropsHeader = {
 
 export const Header = styled.header`
    position: relative;
+   left: 0;
    padding: 1rem 2rem;
    box-shadow: 0 0 2rem 0 rgb(41 48 66 / 10%);
    display: flex;
@@ -14,11 +15,20 @@ export const Header = styled.header`
    justify-content: space-between;
    z-index: 10;
    transition: all 0.35s ease;
-   ${(props: PropsHeader) =>
-      props.isToggle &&
-      css`
-         margin-left: 25rem;
-      `}
+   @media (min-width: 769px) {
+      ${(props: PropsHeader) =>
+         props.isToggle &&
+         css`
+            margin-left: 25rem;
+         `}
+   }
+   @media (max-width: 768px) {
+      ${(props: PropsHeader) =>
+         props.isToggle &&
+         css`
+            left: 25rem;
+         `}
+   }
 `;
 
 export const HeaderLeft = styled.div`

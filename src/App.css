@@ -12,6 +12,11 @@ a {
    text-decoration: none;
    outline: none;
 }
+a:focus {
+   outline: 0;
+   border: none;
+   -moz-outline-style: none;
+}
 img {
    width: 100%;
    height: 100%;
@@ -35,7 +40,7 @@ input:-webkit-autofill:active {
 body {
    font-family: "Poppins", sans-serif;
    font-size: 1.35rem;
-   line-height: 1.2;
+   line-height: 1.4;
    background-color: #fff;
    overflow-x: hidden;
    font-weight: 400;

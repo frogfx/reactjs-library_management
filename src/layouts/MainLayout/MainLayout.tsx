@@ -17,6 +17,7 @@ const MainLayout: React.FC = () => {
          <Page isToggle={isToggle}>
             <Outlet />
          </Page>
+         <s.Background isShow={isToggle} onClick={() => setIsToggle(false)} />
       </s.MainLayout>
    );
 };

@@ -9,4 +9,7 @@ export const Logo = styled.h3`
    span {
       color: #3f80ea;
    }
+   @media (max-width: 470px) {
+      display: none;
+   }
 `;

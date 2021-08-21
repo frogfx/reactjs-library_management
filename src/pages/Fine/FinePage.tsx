@@ -30,9 +30,9 @@ const FinePage: React.FC = () => {
                   <Tr>
                      <Th width="3.5">No.</Th>
                      <Th>Reader Name</Th>
-                     <Th>Debt</Th>
+                     <Th isHidden>Debt</Th>
                      <Th>Payment</Th>
-                     <Th>Remaining</Th>
+                     <Th isHidden>Remaining</Th>
                      <Th isCenter>Actions</Th>
                   </Tr>
                </Thead>
@@ -40,9 +40,9 @@ const FinePage: React.FC = () => {
                   <Tr>
                      <Td isCenter>1</Td>
                      <Td>Nguyễn Văn A</Td>
-                     <Td>50.000 VND</Td>
+                     <Td isHidden>50.000 VND</Td>
                      <Td>30.000 VND</Td>
-                     <Td>20.000 VND</Td>
+                     <Td isHidden>20.000 VND</Td>
                      <Td isCenter>
                         <Link to="1">
                            <s.EyeIcon />
@@ -52,9 +52,9 @@ const FinePage: React.FC = () => {
                   <Tr>
                      <Td isCenter>2</Td>
                      <Td>Nguyễn Văn B</Td>
-                     <Td>40.000 VND</Td>
+                     <Td isHidden>40.000 VND</Td>
                      <Td>30.000 VND</Td>
-                     <Td>10.000 VND</Td>
+                     <Td isHidden>10.000 VND</Td>
                      <Td isCenter>
                         <Link to="1">
                            <s.EyeIcon />

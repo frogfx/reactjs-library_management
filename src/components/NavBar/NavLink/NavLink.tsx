@@ -10,9 +10,9 @@ interface PropsNavLink {
 const NavLink: React.FC<PropsNavLink> = ({ children, path }) => {
    const match = useMatch({ path: `/${path}/` });
    return (
-      <s.NavLink isActice={match ? true : false} to={path}>
-         {children}
-      </s.NavLink>
+      <s.Nav isActice={match ? true : false}>
+         <s.NavLink to={path}>{children}</s.NavLink>
+      </s.Nav>
    );
 };
 

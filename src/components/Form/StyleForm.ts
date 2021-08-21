@@ -46,6 +46,10 @@ export const FormRow = styled.div`
    margin-bottom: 1.5rem;
    display: flex;
    justify-content: space-between;
+   flex-wrap: wrap;
+   @media (max-width: 1024px) {
+      margin-bottom: 0;
+   }
 `;
 
 export const FormItem = styled.div`
@@ -55,6 +59,10 @@ export const FormItem = styled.div`
       css`
          width: calc(100%);
       `}
+   @media (max-width: 1024px) {
+      width: 100%;
+      margin-bottom: 1.5rem;
+   }
 `;
 
 export const TableTitle = styled.h3`

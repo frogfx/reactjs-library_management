@@ -12,7 +12,10 @@ const StatisticalLogo: React.FC = () => {
          </s.Left>
          <s.Right>
             <s.Image>
-               <img src="https://appstack.bootlab.io/img/illustrations/customer-support.png"></img>
+               <img
+                  src="https://appstack.bootlab.io/img/illustrations/customer-support.png"
+                  alt="logo"
+               ></img>
             </s.Image>
          </s.Right>
       </s.Statistical>

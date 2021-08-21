@@ -24,4 +24,7 @@ export const List = styled.li`
 export const Item = styled.ul`
    width: calc(50% - 1.2rem);
    margin-bottom: 2.5rem;
+   @media (max-width: 1024px) {
+      width: 100%;
+   }
 `;

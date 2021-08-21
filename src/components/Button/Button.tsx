@@ -1,12 +1,12 @@
 import React, { ReactChild, ReactChildren, MouseEventHandler } from "react";
 import * as s from "./StyleButton";
 
-enum ButtonTypes {
-   "button",
-   "submit",
-   "reset",
-   undefined,
-}
+// enum ButtonTypes {
+//    "button",
+//    "submit",
+//    "reset",
+//    undefined,
+// }
 
 interface PropsButton {
    children?:

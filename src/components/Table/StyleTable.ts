@@ -5,11 +5,13 @@ import { Plus } from "@styled-icons/fa-solid";
 type PropsTd = {
    isCenter?: boolean;
    width?: string;
+   isHidden?: boolean;
 };
 
 type PropsTh = {
    isCenter?: boolean;
    width?: string;
+   isHidden?: boolean;
 };
 
 export const PlusIcon = styled(Plus)`
@@ -99,6 +101,13 @@ export const Th = styled.th`
       padding-right: 2rem;
    }
    ${(props: PropsTh) =>
+      props.isHidden &&
+      css`
+         @media (max-width: 1024px) {
+            display: none;
+         }
+      `}
+   ${(props: PropsTh) =>
       props.isCenter &&
       css`
          text-align: center;
@@ -125,6 +134,13 @@ export const Td = styled.td`
       css`
          text-align: center;
       `}
+   ${(props: PropsTd) =>
+      props.isHidden &&
+      css`
+         @media (max-width: 1024px) {
+            display: none;
+         }
+      `}
 `;
 
 export const Pagination = styled.div`
@@ -136,5 +152,4 @@ export const Pagination = styled.div`
 
 export const PaginationDes = styled.p`
    color: #6c757d;
-   font-size: 1.35rem;
 `;

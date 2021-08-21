@@ -31,7 +31,7 @@ const BorrowPage: React.FC = () => {
                      <Th width="3.5">No.</Th>
                      <Th>Reader</Th>
                      <Th>Borrow Date</Th>
-                     <Th>Status</Th>
+                     <Th isHidden>Status</Th>
                      <Th isCenter>Actions</Th>
                   </Tr>
                </Thead>
@@ -40,7 +40,7 @@ const BorrowPage: React.FC = () => {
                      <Td isCenter>1</Td>
                      <Td>Nguyễn Văn A</Td>
                      <Td>07/30/2021</Td>
-                     <Td>Paid</Td>
+                     <Td isHidden>Paid</Td>
                      <Td isCenter>
                         <s.Action>
                            <Link to="1">
@@ -58,7 +58,7 @@ const BorrowPage: React.FC = () => {
                      <Td isCenter>2</Td>
                      <Td>Nguyễn Văn B</Td>
                      <Td>07/30/2021</Td>
-                     <Td>Borrowed</Td>
+                     <Td isHidden>Borrowed</Td>
                      <Td isCenter>
                         <s.Action>
                            <Link to="1">

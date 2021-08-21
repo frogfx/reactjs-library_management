@@ -13,7 +13,7 @@ export const BookIcon = styled(BookReader)`
 `;
 
 export const SideBar = styled.div`
-   z-index: 1;
+   z-index: 15;
    background: #293042;
    position: fixed;
    height: calc(100% - 9%);

@@ -44,7 +44,9 @@ const NavDropdown: React.FC<PropsDropdown> = ({
          </s.Title>
          <s.List heightList={heightList}>
             {links?.map((link) => (
-               <Item path={`/${parentLink}/${link.value}`}>{link.name}</Item>
+               <Item key={link.value} path={`/${parentLink}/${link.value}`}>
+                  {link.name}
+               </Item>
             ))}
          </s.List>
       </s.Dropdown>

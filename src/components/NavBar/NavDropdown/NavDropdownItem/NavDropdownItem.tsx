@@ -10,10 +10,8 @@ interface PropsItem {
 const Item: React.FC<PropsItem> = ({ children, path }) => {
    const match = useMatch({ path: `${path}/*` });
    return (
-      <s.Item>
-         <s.ItemLink isActive={match ? true : false} to={path}>
-            {children}
-         </s.ItemLink>
+      <s.Item isActive={match ? true : false}>
+         <s.ItemLink to={path}>{children}</s.ItemLink>
       </s.Item>
    );
 };

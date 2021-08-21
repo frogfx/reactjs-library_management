@@ -32,6 +32,9 @@ export const Title = styled.h3`
 export const Content = styled.div`
    display: flex;
    padding: 2rem;
+   @media (max-width: 1024px) {
+      flex-direction: column;
+   }
 `;
 
 export const Left = styled.div`
@@ -39,10 +42,17 @@ export const Left = styled.div`
    display: flex;
    flex-direction: column;
    align-items: center;
+   @media (max-width: 1024px) {
+      margin-bottom: 2.5rem;
+      width: 100%;
+   }
 `;
 
 export const Right = styled.div`
    width: 70%;
+   @media (max-width: 1024px) {
+      width: 100%;
+   }
 `;
 
 export const Item = styled.div`

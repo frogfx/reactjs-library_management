@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Statistical = styled.div`
    box-shadow: 0 0 0.875rem 0 rgb(41 48 66 / 5%);
-
    border-radius: 5px;
    background: #e0eafc;
    color: #3f80ea;
@@ -13,6 +12,9 @@ export const Statistical = styled.div`
 
 export const Left = styled.div`
    padding: 2rem;
+   @media (max-width: 520px) {
+      padding: 1rem;
+   }
 `;
 
 export const Title = styled.h3`

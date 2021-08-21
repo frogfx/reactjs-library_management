@@ -37,9 +37,6 @@ const FineForm: React.FC<PropsFineForm> = ({ title, children }) => {
                <s.FormItem>
                   <InfoGroup name="Remaining" value="30.000 VND" />
                </s.FormItem>
-               <s.FormItem>
-                  <InfoGroup name="Create Staff" value="Nguyễn Văn A" />
-               </s.FormItem>
             </s.FormRowInfo>
             {children}
          </s.FormContent>

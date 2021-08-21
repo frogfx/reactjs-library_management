@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import * as s from "./StyleUserAccount";
 
 const UserAccount: React.FC = () => {

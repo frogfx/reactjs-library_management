@@ -29,20 +29,20 @@ const ReadersPage: React.FC = () => {
                <Thead>
                   <Tr>
                      <Th width="3.5">No.</Th>
-                     <Th>ID</Th>
+                     <Th isHidden>ID</Th>
                      <Th>Name</Th>
                      <Th>Category</Th>
-                     <Th>Address</Th>
+                     <Th isHidden>Address</Th>
                      <Th isCenter>Actions</Th>
                   </Tr>
                </Thead>
                <Tbody>
                   <Tr>
                      <Td isCenter>1</Td>
-                     <Td>S000001</Td>
+                     <Td isHidden>S000001</Td>
                      <Td>Nguyễn Văn A</Td>
                      <Td>A</Td>
-                     <Td>Quận 5</Td>
+                     <Td isHidden>Quận 5</Td>
                      <Td isCenter>
                         <Link to="1">
                            <s.EyeIcon />
@@ -51,10 +51,10 @@ const ReadersPage: React.FC = () => {
                   </Tr>
                   <Tr>
                      <Td isCenter>2</Td>
-                     <Td>S000002</Td>
+                     <Td isHidden>S000002</Td>
                      <Td>Nguyễn Văn B</Td>
                      <Td>B</Td>
-                     <Td>Quận 7</Td>
+                     <Td isHidden>Quận 7</Td>
                      <Td isCenter>
                         <Link to="1">
                            <s.EyeIcon />

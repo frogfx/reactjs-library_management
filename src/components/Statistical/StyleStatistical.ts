@@ -16,6 +16,9 @@ export const Statistical = styled.div`
    padding: 2.5rem 2rem;
    border-radius: 5px;
    background-color: #fff;
+   @media (max-width: 520px) {
+      padding: 1rem;
+   }
 `;
 
 export const Top = styled.div`

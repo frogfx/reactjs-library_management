@@ -24,6 +24,8 @@ const BorrowInfo: React.FC = () => {
                <s.InfoItem>
                   <InfoGroup name="Reader Name" value="Nguyễn Văn A" />
                </s.InfoItem>
+            </s.InfoRow>
+            <s.InfoRow>
                <s.InfoItem>
                   <InfoGroup name="Borrow Date" value="07/30/2021" />
                </s.InfoItem>

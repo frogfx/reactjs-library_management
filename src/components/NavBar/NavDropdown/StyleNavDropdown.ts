@@ -64,8 +64,6 @@ export const List = styled.ul`
    overflow: hidden;
 `;
 
-export const Item = styled.li``;
-
 export const ItemLink = styled(Link)`
    cursor: pointer;
    color: rgba(233, 236, 239, 0.5);
@@ -83,13 +81,18 @@ export const ItemLink = styled(Link)`
    &:hover {
       color: #e9ecef;
    }
+`;
+
+export const Item = styled.li`
    ${(props: PropsNavDropdown) =>
       props.isActive &&
       css`
-         outline: 0;
-         border: none;
-         -moz-outline-style: none;
-         color: #568fed;
+         ${ItemLink} {
+            outline: 0;
+            border: none;
+            -moz-outline-style: none;
+            color: #568fed;
+         }
       `};
 `;
 

@@ -9,11 +9,28 @@ export const Page = styled.div`
    min-height: 100vh;
    padding: 4rem 4rem 2.5rem;
    transition: all 0.35s ease;
-   ${(props: PropsHeader) =>
-      props.isToggle &&
-      css`
-         margin-left: 25rem;
-      `}
+   position: relative;
+   left: 0;
+   @media (min-width: 769px) {
+      ${(props: PropsHeader) =>
+         props.isToggle &&
+         css`
+            margin-left: 25rem;
+         `}
+   }
+   @media (max-width: 768px) {
+      ${(props: PropsHeader) =>
+         props.isToggle &&
+         css`
+            left: 25rem;
+         `}
+   }
+   @media (max-width: 520px) {
+      padding: 2.5rem;
+   }
+   @media (max-width: 520px) {
+      padding: 2.5rem 1rem;
+   }
 `;
 
 export const Title = styled.h2`
