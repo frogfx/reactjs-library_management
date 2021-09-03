@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import Button from "../Button/Button";
 import SelectGroup from "../SelectGroup/SelectGroup";
 import * as s from "./StyleModalAdd";
@@ -13,6 +14,7 @@ interface PropsModal {
    isOpen: boolean;
    closeModal: Function;
    options: Option[];
+   handleAdd: Function;
 }
 
 const ModalAdd: React.FC<PropsModal> = ({
@@ -20,16 +22,36 @@ const ModalAdd: React.FC<PropsModal> = ({
    options,
    isOpen,
    closeModal,
+   handleAdd,
 }) => {
+   const [error, setError] = useState<string>("");
+   const { register, getValues } = useForm();
+   const handleAddClick = () => {
+      const messError = handleAdd(getValues("chose"));
+      if (messError) {
+         setError(messError);
+      } else {
+         setError(messError);
+         closeModal();
+      }
+   };
    return (
       <s.ModalAdd isOpen={isOpen}>
          <s.Modal>
             <s.Title>{`Chose ${title}`}</s.Title>
             <s.Select>
-               <SelectGroup options={options} />
+               <SelectGroup
+                  options={options}
+                  innerRef={register("chose")}
+                  error={error}
+               />
             </s.Select>
             <s.Action>
-               <Button typeColor="primary" type="button">
+               <Button
+                  onClick={() => handleAddClick()}
+                  typeColor="primary"
+                  type="button"
+               >
                   <s.BookMarkIcon />
                   Chose
                </Button>

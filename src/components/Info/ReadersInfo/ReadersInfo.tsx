@@ -2,39 +2,44 @@ import React from "react";
 import InfoAction from "../InfoAction/InfoAction";
 import InfoGroup from "../../InfoGroup/InfoGroup";
 import * as s from "../StyleInfo";
+import { Readers } from "../../../interface/index";
 
-const ReadersInfo: React.FC = () => {
+interface PropsReaders {
+   reader?: Readers;
+}
+
+const ReadersInfo: React.FC<PropsReaders> = ({ reader = {} as Readers }) => {
    return (
       <s.Info>
          <s.Title>Readers Detail</s.Title>
          <s.Content>
             <s.InfoRow>
                <s.InfoItem>
-                  <InfoGroup name="ID" value="B000001" />
+                  <InfoGroup name="ID" value={reader.id} />
                </s.InfoItem>
                <s.InfoItem>
-                  <InfoGroup name="Name" value="Nguyễn Văn A" />
-               </s.InfoItem>
-            </s.InfoRow>
-            <s.InfoRow>
-               <s.InfoItem>
-                  <InfoGroup name="Category" value="A" />
-               </s.InfoItem>
-               <s.InfoItem>
-                  <InfoGroup name="Date of birth" value="20/05/1999" />
+                  <InfoGroup name="Name" value={reader.name} />
                </s.InfoItem>
             </s.InfoRow>
             <s.InfoRow>
                <s.InfoItem>
-                  <InfoGroup name="Address" value="227 Nguyễn Văn Cừ, Quận 5" />
+                  <InfoGroup name="Category" value={reader.category.value} />
                </s.InfoItem>
                <s.InfoItem>
-                  <InfoGroup name="Email" value="email01@gmail.com" />
+                  <InfoGroup name="Date of birth" value={reader.birthDay} />
                </s.InfoItem>
             </s.InfoRow>
             <s.InfoRow>
                <s.InfoItem>
-                  <InfoGroup name="Create By" value="Nguyễn Văn B" />
+                  <InfoGroup name="Address" value={reader.address} />
+               </s.InfoItem>
+               <s.InfoItem>
+                  <InfoGroup name="Email" value={reader.email} />
+               </s.InfoItem>
+            </s.InfoRow>
+            <s.InfoRow>
+               <s.InfoItem>
+                  <InfoGroup name="Create By" value={reader.createBy} />
                </s.InfoItem>
             </s.InfoRow>
             <InfoAction />

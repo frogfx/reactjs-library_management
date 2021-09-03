@@ -51,7 +51,7 @@ body {
 ::-webkit-scrollbar-track {
 }
 ::-webkit-scrollbar-thumb {
-   background: rgba(233, 236, 239, 0.75);
+   background: #84aef2;
    border-radius: 5px;
 }
 .App {

@@ -14,57 +14,59 @@ import Tbody from "../../components/Table/Tbody/Tbody";
 import TableActions from "../../components/Table/TableActions/TableActions";
 import TableDes from "../../components/Table/TableDes/TableDes";
 import TablePagination from "../../components/Table/TablePagination/TablePagination";
+import useFetch from "../../hooks/useFetch";
+import { Fine } from "../../interface/index";
+import fineApi from "../../api/fineApi";
+import Loading from "../../components/Loading/Loading";
+import PageContent from "../../components/Page/PageContent/PageConent";
 
 const FinePage: React.FC = () => {
+   const [data, isLoading, error] = useFetch<Fine[]>(() => fineApi.getAll());
    return (
       <s.FinePage>
-         <PageTitle title="Fine Receipt Manage" />
-         <Table>
-            <TableLabel>
-               <TableTitle title="Fine List" />
-               <TableDes des="Here is a brief infomation of the Fine Receipt. Click on the Eye icon to see details." />
-            </TableLabel>
-            <TableActions />
-            <TableContent>
-               <Thead>
-                  <Tr>
-                     <Th width="3.5">No.</Th>
-                     <Th>Reader Name</Th>
-                     <Th isHidden>Debt</Th>
-                     <Th>Payment</Th>
-                     <Th isHidden>Remaining</Th>
-                     <Th isCenter>Actions</Th>
-                  </Tr>
-               </Thead>
-               <Tbody>
-                  <Tr>
-                     <Td isCenter>1</Td>
-                     <Td>Nguyễn Văn A</Td>
-                     <Td isHidden>50.000 VND</Td>
-                     <Td>30.000 VND</Td>
-                     <Td isHidden>20.000 VND</Td>
-                     <Td isCenter>
-                        <Link to="1">
-                           <s.EyeIcon />
-                        </Link>
-                     </Td>
-                  </Tr>
-                  <Tr>
-                     <Td isCenter>2</Td>
-                     <Td>Nguyễn Văn B</Td>
-                     <Td isHidden>40.000 VND</Td>
-                     <Td>30.000 VND</Td>
-                     <Td isHidden>10.000 VND</Td>
-                     <Td isCenter>
-                        <Link to="1">
-                           <s.EyeIcon />
-                        </Link>
-                     </Td>
-                  </Tr>
-               </Tbody>
-            </TableContent>
-            <TablePagination />
-         </Table>
+         {isLoading ? (
+            <Loading />
+         ) : (
+            <PageContent>
+               <PageTitle title="Fine Receipt Manage" />
+               <Table>
+                  <TableLabel>
+                     <TableTitle title="Fine List" />
+                     <TableDes des="Here is a brief infomation of the Fine Receipt. Click on the Eye icon to see details." />
+                  </TableLabel>
+                  <TableActions />
+                  <TableContent>
+                     <Thead>
+                        <Tr>
+                           <Th width="3.5">No.</Th>
+                           <Th>Reader Name</Th>
+                           <Th isHidden>Debt</Th>
+                           <Th>Payment</Th>
+                           <Th isHidden>Remaining</Th>
+                           <Th isCenter>Actions</Th>
+                        </Tr>
+                     </Thead>
+                     <Tbody>
+                        {data!.map((value, i) => (
+                           <Tr>
+                              <Td isCenter>{i + 1}</Td>
+                              <Td>{value.reader.value}</Td>
+                              <Td isHidden>{`${value.debt} VND`}</Td>
+                              <Td>{`${value.payment} VND`}</Td>
+                              <Td isHidden>{`${value.remaining} VND`}</Td>
+                              <Td isCenter>
+                                 <Link to="1">
+                                    <s.EyeIcon />
+                                 </Link>
+                              </Td>
+                           </Tr>
+                        ))}
+                     </Tbody>
+                  </TableContent>
+                  <TablePagination />
+               </Table>
+            </PageContent>
+         )}
       </s.FinePage>
    );
 };

@@ -12,31 +12,39 @@ import Th from "../../Table/Th/Th";
 import Tbody from "../../Table/Tbody/Tbody";
 import Td from "../../Table/Td/Td";
 import Tfoot from "../../Table/Tfoot/Tfoot";
+import { Returns } from "../../../interface/index";
 
-const ReturnsInfo: React.FC = () => {
+interface PropsReturns {
+   returns?: Returns;
+}
+
+const ReturnsInfo: React.FC<PropsReturns> = ({ returns = {} as Returns }) => {
    return (
       <s.Info>
          <s.Title>Returns Receipt Detail</s.Title>
          <s.Content>
             <s.InfoRow>
                <s.InfoItem>
-                  <InfoGroup name="ID" value="RR000001" />
+                  <InfoGroup name="ID" value={returns.id} />
                </s.InfoItem>
                <s.InfoItem>
-                  <InfoGroup name="ID Borrow Receipt" value="BR000001" />
-               </s.InfoItem>
-            </s.InfoRow>
-            <s.InfoRow>
-               <s.InfoItem>
-                  <InfoGroup name="Reader Name" value="Nguyễn Văn A" />
+                  <InfoGroup
+                     name="ID Borrow Receipt"
+                     value={returns.idBorrow}
+                  />
                </s.InfoItem>
             </s.InfoRow>
             <s.InfoRow>
                <s.InfoItem>
-                  <InfoGroup name="Borrow Date" value="07/30/2021" />
+                  <InfoGroup name="Reader Name" value={returns.readers.value} />
+               </s.InfoItem>
+            </s.InfoRow>
+            <s.InfoRow>
+               <s.InfoItem>
+                  <InfoGroup name="Borrow Date" value={returns.borrowDate} />
                </s.InfoItem>
                <s.InfoItem>
-                  <InfoGroup name="Returns Date" value="07/30/2021" />
+                  <InfoGroup name="Returns Date" value={returns.returnsDate} />
                </s.InfoItem>
             </s.InfoRow>
             <s.InfoTable>
@@ -56,26 +64,22 @@ const ReturnsInfo: React.FC = () => {
                      </Tr>
                   </Thead>
                   <Tbody>
-                     <Tr>
-                        <Td isCenter>1</Td>
-                        <Td>C000001</Td>
-                        <Td>Nhập môn lập trình</Td>
-                        <Td>Công nghệ phần mềm</Td>
-                        <Td>KHTN University</Td>
-                        <Td isCenter>
-                           <input type="checkbox" disabled checked></input>
-                        </Td>
-                     </Tr>
-                     <Tr>
-                        <Td isCenter>2</Td>
-                        <Td>C000002</Td>
-                        <Td>Ẩn dữ liệu và chia sẻ thông tin</Td>
-                        <Td>Khoa học máy tính</Td>
-                        <Td>KHTN University</Td>
-                        <Td isCenter>
-                           <input type="checkbox" disabled></input>
-                        </Td>
-                     </Tr>
+                     {returns.books.map((book, i) => (
+                        <Tr>
+                           <Td isCenter>{i + 1}</Td>
+                           <Td>{book.id}</Td>
+                           <Td>{book.name}</Td>
+                           <Td>{book.category.value}</Td>
+                           <Td>{book.author}</Td>
+                           <Td isCenter>
+                              <input
+                                 type="checkbox"
+                                 disabled
+                                 checked={book.isLost ? true : false}
+                              ></input>
+                           </Td>
+                        </Tr>
+                     ))}
                   </Tbody>
                </TableContent>
             </s.InfoTable>
@@ -93,22 +97,19 @@ const ReturnsInfo: React.FC = () => {
                      </Tr>
                   </Thead>
                   <Tbody>
-                     <Tr>
-                        <Td isCenter>1</Td>
-                        <Td>Lost Book: Nhập môn công nghệ phần mềm</Td>
-                        <Td>20.000 VND</Td>
-                     </Tr>
-                     <Tr>
-                        <Td isCenter>2</Td>
-                        <Td>Late: 7 Day</Td>
-                        <Td>35.000 VND</Td>
-                     </Tr>
+                     {returns.fines.map((fine, i) => (
+                        <Tr>
+                           <Td isCenter>{i + 1}</Td>
+                           <Td>{fine.content}</Td>
+                           <Td>{`${fine.value} VND`}</Td>
+                        </Tr>
+                     ))}
                   </Tbody>
                   <Tfoot>
                      <Tr>
                         <Td>Total</Td>
                         <Td></Td>
-                        <Td>55.000 VND</Td>
+                        <Td>{`${returns.totalFine} VND`}</Td>
                      </Tr>
                   </Tfoot>
                </TableContent>

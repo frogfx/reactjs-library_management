@@ -2,31 +2,36 @@ import React from "react";
 import InfoAction from "../InfoAction/InfoAction";
 import InfoGroup from "../../InfoGroup/InfoGroup";
 import * as s from "../StyleInfo";
+import { Fine } from "../../../interface/index";
 
-const FineInfo: React.FC = () => {
+interface PropsFine {
+   fine?: Fine;
+}
+
+const FineInfo: React.FC<PropsFine> = ({ fine = {} as Fine }) => {
    return (
       <s.Info>
          <s.Title>Fine Receipt Detail</s.Title>
          <s.Content>
             <s.InfoRow>
                <s.InfoItem>
-                  <InfoGroup name="Name" value="Nguyễn Văn A" />
+                  <InfoGroup name="Name" value={fine.reader.value} />
                </s.InfoItem>
                <s.InfoItem>
-                  <InfoGroup name="Debt" value="50.000" />
-               </s.InfoItem>
-            </s.InfoRow>
-            <s.InfoRow>
-               <s.InfoItem>
-                  <InfoGroup name="Payment" value="30.000" />
-               </s.InfoItem>
-               <s.InfoItem>
-                  <InfoGroup name="Remaining" value="20.000" />
+                  <InfoGroup name="Debt" value={`${fine.debt} VNĐ`} />
                </s.InfoItem>
             </s.InfoRow>
             <s.InfoRow>
                <s.InfoItem>
-                  <InfoGroup name="Creat Staff" value="Nguyễn Văn B" />
+                  <InfoGroup name="Payment" value={`${fine.payment} VNĐ`} />
+               </s.InfoItem>
+               <s.InfoItem>
+                  <InfoGroup name="Remaining" value={`${fine.remaining} VNĐ`} />
+               </s.InfoItem>
+            </s.InfoRow>
+            <s.InfoRow>
+               <s.InfoItem>
+                  <InfoGroup name="Creat Staff" value={fine.createBy} />
                </s.InfoItem>
             </s.InfoRow>
             <InfoAction />

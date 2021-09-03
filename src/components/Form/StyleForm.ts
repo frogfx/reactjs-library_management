@@ -12,6 +12,7 @@ export const TrashIcon = styled(TrashAlt)`
    height: 1.7rem;
    color: #6c757d;
    transition: all 0.25s linear;
+   cursor: pointer;
    &:hover {
       color: #212529;
    }
@@ -110,4 +111,11 @@ export const FormImage = styled.div`
    display: flex;
    flex-direction: column;
    align-items: center;
+`;
+
+export const Error = styled.p`
+   color: #df5353;
+   font-weight: 300;
+   text-align: center;
+   margin-bottom: 1rem;
 `;

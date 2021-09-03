@@ -2,47 +2,52 @@ import React from "react";
 import InfoAction from "../InfoAction/InfoAction";
 import InfoGroup from "../../InfoGroup/InfoGroup";
 import * as s from "../StyleInfo";
+import { Book } from "../../../interface/index";
 
-const BookInfo: React.FC = () => {
+interface PropsBook {
+   book?: Book;
+}
+
+const BookInfo: React.FC<PropsBook> = ({ book = {} as Book }) => {
    return (
       <s.Info>
          <s.Title>Book Detail</s.Title>
          <s.Content>
             <s.InfoRow>
                <s.InfoItem>
-                  <InfoGroup name="ID" value="B000001" />
+                  <InfoGroup name="ID" value={book.id} />
                </s.InfoItem>
                <s.InfoItem>
-                  <InfoGroup name="Name" value="Nhập môn công nghệ phần mềm" />
-               </s.InfoItem>
-            </s.InfoRow>
-            <s.InfoRow>
-               <s.InfoItem>
-                  <InfoGroup name="Category" value="Công nghệ phần mềm" />
-               </s.InfoItem>
-               <s.InfoItem>
-                  <InfoGroup name="Author" value="KHTN University" />
+                  <InfoGroup name="Name" value={book.name} />
                </s.InfoItem>
             </s.InfoRow>
             <s.InfoRow>
                <s.InfoItem>
-                  <InfoGroup name="Publis Year" value="2017" />
+                  <InfoGroup name="Category" value={book.category.value} />
                </s.InfoItem>
                <s.InfoItem>
-                  <InfoGroup name="Publisher" value="Bộ giáo dục và đào tạo" />
-               </s.InfoItem>
-            </s.InfoRow>
-            <s.InfoRow>
-               <s.InfoItem>
-                  <InfoGroup name="Added Date" value="07/30/2021" />
-               </s.InfoItem>
-               <s.InfoItem>
-                  <InfoGroup name="Reciever" value="Nguyễn Văn A" />
+                  <InfoGroup name="Author" value={book.author} />
                </s.InfoItem>
             </s.InfoRow>
             <s.InfoRow>
                <s.InfoItem>
-                  <InfoGroup name="Price" value="30.000 VNĐ" />
+                  <InfoGroup name="Publis Year" value={book.publisYear.value} />
+               </s.InfoItem>
+               <s.InfoItem>
+                  <InfoGroup name="Publisher" value={book.publisher} />
+               </s.InfoItem>
+            </s.InfoRow>
+            <s.InfoRow>
+               <s.InfoItem>
+                  <InfoGroup name="Added Date" value={book.addDate} />
+               </s.InfoItem>
+               <s.InfoItem>
+                  <InfoGroup name="Reciever" value={book.reciever} />
+               </s.InfoItem>
+            </s.InfoRow>
+            <s.InfoRow>
+               <s.InfoItem>
+                  <InfoGroup name="Price" value={`${book.price} VNĐ`} />
                </s.InfoItem>
             </s.InfoRow>
             <InfoAction />

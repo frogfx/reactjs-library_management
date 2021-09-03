@@ -1,0 +1,6 @@
+export enum ActionType {
+   LOGIN = "LOGIN",
+   LOGOUT = "LOGOUT",
+   OPEN_CART_MODAL = "OPEN_CART_MODAL",
+   CLOSE_CART_MODAL = "CLOSE_CART_MODAL",
+}

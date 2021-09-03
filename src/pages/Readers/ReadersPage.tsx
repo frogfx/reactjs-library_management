@@ -14,57 +14,61 @@ import Tbody from "../../components/Table/Tbody/Tbody";
 import TableActions from "../../components/Table/TableActions/TableActions";
 import TableDes from "../../components/Table/TableDes/TableDes";
 import TablePagination from "../../components/Table/TablePagination/TablePagination";
+import readersApi from "../../api/readersApi";
+import useFetch from "../../hooks/useFetch";
+import { Readers } from "../../interface/index";
+import Loading from "../../components/Loading/Loading";
+import PageContent from "../../components/Page/PageContent/PageConent";
 
 const ReadersPage: React.FC = () => {
+   const [data, isLoading, error] = useFetch<Readers[]>(() =>
+      readersApi.getAll()
+   );
    return (
       <s.ReadersPage>
-         <PageTitle title="Readers Manage" />
-         <Table>
-            <TableLabel>
-               <TableTitle title="Readers List" />
-               <TableDes des="Here is a brief infomation of the Readers. Click on the Eye icon to see details." />
-            </TableLabel>
-            <TableActions />
-            <TableContent>
-               <Thead>
-                  <Tr>
-                     <Th width="3.5">No.</Th>
-                     <Th isHidden>ID</Th>
-                     <Th>Name</Th>
-                     <Th>Category</Th>
-                     <Th isHidden>Address</Th>
-                     <Th isCenter>Actions</Th>
-                  </Tr>
-               </Thead>
-               <Tbody>
-                  <Tr>
-                     <Td isCenter>1</Td>
-                     <Td isHidden>S000001</Td>
-                     <Td>Nguyễn Văn A</Td>
-                     <Td>A</Td>
-                     <Td isHidden>Quận 5</Td>
-                     <Td isCenter>
-                        <Link to="1">
-                           <s.EyeIcon />
-                        </Link>
-                     </Td>
-                  </Tr>
-                  <Tr>
-                     <Td isCenter>2</Td>
-                     <Td isHidden>S000002</Td>
-                     <Td>Nguyễn Văn B</Td>
-                     <Td>B</Td>
-                     <Td isHidden>Quận 7</Td>
-                     <Td isCenter>
-                        <Link to="1">
-                           <s.EyeIcon />
-                        </Link>
-                     </Td>
-                  </Tr>
-               </Tbody>
-            </TableContent>
-            <TablePagination />
-         </Table>
+         {isLoading ? (
+            <Loading />
+         ) : (
+            <PageContent>
+               <PageTitle title="Readers Manage" />
+               <Table>
+                  <TableLabel>
+                     <TableTitle title="Readers List" />
+                     <TableDes des="Here is a brief infomation of the Readers. Click on the Eye icon to see details." />
+                  </TableLabel>
+                  <TableActions />
+                  <TableContent>
+                     <Thead>
+                        <Tr>
+                           <Th width="3.5">No.</Th>
+                           <Th isHidden>ID</Th>
+                           <Th>Name</Th>
+                           <Th>Category</Th>
+                           <Th isHidden>Address</Th>
+                           <Th isCenter>Actions</Th>
+                        </Tr>
+                     </Thead>
+                     <Tbody>
+                        {data!.map((value, i) => (
+                           <Tr>
+                              <Td isCenter>{i + 1}</Td>
+                              <Td isHidden>{value.id}</Td>
+                              <Td>{value.name}</Td>
+                              <Td>{value.category.value}</Td>
+                              <Td isHidden>{value.address}</Td>
+                              <Td isCenter>
+                                 <Link to="1">
+                                    <s.EyeIcon />
+                                 </Link>
+                              </Td>
+                           </Tr>
+                        ))}
+                     </Tbody>
+                  </TableContent>
+                  <TablePagination />
+               </Table>
+            </PageContent>
+         )}
       </s.ReadersPage>
    );
 };

@@ -29,6 +29,15 @@ export const SideBar = styled.div`
       css`
          left: 0;
       `}
+   ::-webkit-scrollbar {
+      width: 0.7rem;
+   }
+   ::-webkit-scrollbar-track {
+   }
+   ::-webkit-scrollbar-thumb {
+      background: rgba(233, 236, 239, 0.75);
+      border-radius: 5px;
+   }
 `;
 
 export const Logo = styled.h1`

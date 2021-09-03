@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 type PropsHeader = {
    isToggle?: boolean;
@@ -6,7 +6,7 @@ type PropsHeader = {
 
 export const Page = styled.div`
    background-color: #f7f9fc;
-   min-height: 100vh;
+   min-height: calc(100vh - 6rem);
    padding: 4rem 4rem 2.5rem;
    transition: all 0.35s ease;
    position: relative;
@@ -40,4 +40,11 @@ export const Title = styled.h2`
    margin-bottom: 1.5rem;
 `;
 
-export const Content = styled.div``;
+const spinner = keyframes`
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+`;
+
+export const Content = styled.div`
+   animation: ${spinner} 0.5s linear;
+`;

@@ -67,3 +67,10 @@ export const Remember = styled.div`
       color: #6c757d;
    }
 `;
+
+export const Error = styled.p`
+   color: #df5353;
+   font-weight: 300;
+   text-align: center;
+   margin-bottom: 1rem;
+`;

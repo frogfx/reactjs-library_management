@@ -1,14 +1,20 @@
-import React from "react";
+import React, { ChangeEventHandler } from "react";
+import { UseFormRegisterReturn } from "react-hook-form";
 import * as s from "./StyleChoseFile";
 
-const ChoseFile: React.FC = () => {
+interface PropsChoseFile {
+   onChange: ChangeEventHandler<HTMLInputElement>;
+   innerRef?: UseFormRegisterReturn;
+}
+
+const ChoseFile: React.FC<PropsChoseFile> = ({ onChange, innerRef }) => {
    return (
       <s.ChoseFile>
-         <s.Label htmlFor="file">
+         <s.Label htmlFor="image">
             <s.UploadIcon />
             Upload
          </s.Label>
-         <s.Input id="file" type="file" />
+         <s.Input {...innerRef} id="image" type="file" onChange={onChange} />
       </s.ChoseFile>
    );
 };

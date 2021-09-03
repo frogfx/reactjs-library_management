@@ -1,7 +1,7 @@
 import React from "react";
+import * as s from "../StyleInfo";
 import InfoAction from "../InfoAction/InfoAction";
 import InfoGroup from "../../InfoGroup/InfoGroup";
-import * as s from "../StyleInfo";
 import TableLabel from "../../Table/TableLabel/TableLabel";
 import TableTitle from "../../Table/TableTitle/TableTitle";
 import TableDes from "../../Table/TableDes/TableDes";
@@ -11,23 +11,28 @@ import Tr from "../../Table/Tr/Tr";
 import Th from "../../Table/Th/Th";
 import Tbody from "../../Table/Tbody/Tbody";
 import Td from "../../Table/Td/Td";
+import { Borrow } from "../../../interface/index";
 
-const BorrowInfo: React.FC = () => {
+interface PropsBorrow {
+   borrow?: Borrow;
+}
+
+const BorrowInfo: React.FC<PropsBorrow> = ({ borrow = {} as Borrow }) => {
    return (
       <s.Info>
          <s.Title>Borrow Receipt Detail</s.Title>
          <s.Content>
             <s.InfoRow>
                <s.InfoItem>
-                  <InfoGroup name="ID" value="C000001" />
+                  <InfoGroup name="ID" value={borrow.id} />
                </s.InfoItem>
                <s.InfoItem>
-                  <InfoGroup name="Reader Name" value="Nguyễn Văn A" />
+                  <InfoGroup name="Reader Name" value={borrow.readers.value} />
                </s.InfoItem>
             </s.InfoRow>
             <s.InfoRow>
                <s.InfoItem>
-                  <InfoGroup name="Borrow Date" value="07/30/2021" />
+                  <InfoGroup name="Borrow Date" value={borrow.borrowDate} />
                </s.InfoItem>
             </s.InfoRow>
             <s.InfoTable>
@@ -46,20 +51,15 @@ const BorrowInfo: React.FC = () => {
                      </Tr>
                   </Thead>
                   <Tbody>
-                     <Tr>
-                        <Td isCenter>1</Td>
-                        <Td>C000001</Td>
-                        <Td>Nhập môn lập trình</Td>
-                        <Td>Công nghệ phần mềm</Td>
-                        <Td>University</Td>
-                     </Tr>
-                     <Tr>
-                        <Td isCenter>2</Td>
-                        <Td>C000002</Td>
-                        <Td>Ẩn dữ liệu và chia sẻ thông tin</Td>
-                        <Td>Khoa học máy tính</Td>
-                        <Td>University</Td>
-                     </Tr>
+                     {borrow.books.map((book, i) => (
+                        <Tr>
+                           <Td isCenter>{i + 1}</Td>
+                           <Td>{book.id}</Td>
+                           <Td>{book.name}</Td>
+                           <Td>{book.category.value}</Td>
+                           <Td>{book.author}</Td>
+                        </Tr>
+                     ))}
                   </Tbody>
                </TableContent>
             </s.InfoTable>
