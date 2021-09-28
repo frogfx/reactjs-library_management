@@ -6,6 +6,7 @@ import { bindActionCreators } from "redux";
 import { actionCreators } from "../../state";
 import OutsideClickHandler from "react-outside-click-handler";
 import * as s from "./StyleUserAccount";
+import { Link } from "react-router-dom";
 
 const UserAccount: React.FC = () => {
    const navigate = useNavigate();
@@ -28,10 +29,12 @@ const UserAccount: React.FC = () => {
                <s.AngleDownIcon />
             </s.Label>
             <s.Dropdown isOpen={isOpenDropdown}>
-               <s.DropdownItem>
-                  <s.UserIcon />
-                  <p>Profile</p>
-               </s.DropdownItem>
+               <Link to="/profile">
+                  <s.DropdownItem onClick={() => setIsOpenDropdown(false)}>
+                     <s.UserIcon />
+                     <p>Profile</p>
+                  </s.DropdownItem>
+               </Link>
                <s.DropdownItem onClick={() => handleLogout()}>
                   <s.SignOutIcon />
                   <p>Logout</p>

@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { Auth, User } from "../../interface/index";
-import { useDispatch } from "react-redux";
-import { bindActionCreators } from "redux";
-import { actionCreators } from "../../state";
+import { Auth } from "../../interface/index";
 import Button from "../../components/Button/Button";
 import InputGroup from "../../components/InputGroup/InputGroup";
 import * as s from "./StyleLoginPage";
@@ -18,8 +15,7 @@ type FormValues = {
 const LoginPage: React.FC = () => {
    const navigate = useNavigate();
    const [isLoginFail, setIsLoginFail] = useState<boolean>(false);
-   const dispatch = useDispatch();
-   const { logIn } = bindActionCreators(actionCreators, dispatch);
+
    const {
       register,
       handleSubmit,
@@ -36,7 +32,7 @@ const LoginPage: React.FC = () => {
       authApi
          .logIn(params)
          .then((data) => {
-            if (data.data.authenticated) {
+            if (data.data.authen) {
                localStorage.setItem("accessToken", data.data.accessToken);
                localStorage.setItem("refreshToken", data.data.refreshToken);
                navigate("/");

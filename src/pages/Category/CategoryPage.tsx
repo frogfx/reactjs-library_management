@@ -1,5 +1,6 @@
 import React from "react";
 import { Category } from "../../interface/index";
+import { useNavigate } from "react-router-dom";
 import Table from "../../components/Table/Table";
 import Tr from "../../components/Table/Tr/Tr";
 import Th from "../../components/Table/Th/Th";
@@ -18,11 +19,34 @@ import useFetch from "../../hooks/useFetch";
 import categoryApi from "../../api/categoryApi";
 import Loading from "../../components/Loading/Loading";
 import PageContent from "../../components/Page/PageContent/PageConent";
+import Notification from "../../assets/Notification";
+import NotificationContent from "../../components/Notification/NotificationContent";
 
 const CategoryPage: React.FC = () => {
-   const [data, isLoading, error] = useFetch<Category[]>(() =>
+   const navigate = useNavigate();
+   const [data, isLoading, error, setIsLoading] = useFetch<Category[]>(() =>
       categoryApi.getAll()
    );
+
+   const handleDelete = (id: string) => {
+      categoryApi.delete(id).then((res) => {
+         if (res.data.delete === true) {
+            navigate("/book-manage/category");
+            setIsLoading(true);
+         }
+      });
+   };
+
+   const handleEdit = (id: string) => {
+      Notification(
+         "danger",
+         <NotificationContent
+            type="danger"
+            message="Update Category success—check it out!"
+         />
+      );
+   };
+
    return (
       <s.CategoryPage>
          {isLoading ? (
@@ -52,10 +76,12 @@ const CategoryPage: React.FC = () => {
                               <Td isHidden>{value.id}</Td>
                               <Td>{value.name}</Td>
                               <Td isCenter>
-                                 <s.Action>
+                                 <s.Action onClick={() => handleEdit("1")}>
                                     <s.PencilIcon />
                                  </s.Action>
-                                 <s.Action>
+                                 <s.Action
+                                    onClick={() => handleDelete(value.id)}
+                                 >
                                     <s.TrashIcon />
                                  </s.Action>
                               </Td>

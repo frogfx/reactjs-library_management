@@ -37,7 +37,7 @@ const ImageForm: React.FC<PropsImageForm> = ({ title, children, srcImage }) => {
 
    const onSubmit = (data: FormValues) => {
       authApi.changeImage(data.image[0]).then((res) => {
-         if (res.data.updated) {
+         if (res.data.update) {
             navigate("/profile");
          } else {
             setIsError(true);

@@ -1,8 +1,11 @@
 import React, { ReactChild, ReactChildren } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import categoryApi from "../../../api/categoryApi";
 import InputGroup from "../../InputGroup/InputGroup";
 import FormTitle from "../FormTitle/FormTitle";
 import * as s from "../StyleForm";
+import { Category } from "../../../interface/index";
 
 interface PropsCategoryForm {
    title?: string;
@@ -14,6 +17,7 @@ type FormValues = {
 };
 
 const CategoryForm: React.FC<PropsCategoryForm> = ({ title, children }) => {
+   const navigate = useNavigate();
    const {
       register,
       handleSubmit,
@@ -23,7 +27,12 @@ const CategoryForm: React.FC<PropsCategoryForm> = ({ title, children }) => {
    });
 
    const onSubmit = (data: FormValues) => {
-      console.log(data);
+      const category = { name: data.name } as Category;
+      categoryApi.add(category).then((res) => {
+         if (res.data.add === true) {
+            navigate("/book-manage/category");
+         }
+      });
    };
    return (
       <s.Form>

@@ -51,11 +51,11 @@ const BookPage: React.FC = () => {
                            <Tr>
                               <Td isCenter>{i + 1}</Td>
                               <Td isHidden>{value.id}</Td>
-                              <Td>{value.category.value}</Td>
                               <Td>{value.name}</Td>
+                              <Td>{value.category.value}</Td>
                               <Td isHidden>{value.author}</Td>
                               <Td isCenter>
-                                 <Link to="1">
+                                 <Link to={`${value.id}`}>
                                     <s.EyeIcon />
                                  </Link>
                               </Td>

@@ -4,6 +4,10 @@ type PropsBackground = {
    isShow?: boolean;
 };
 
+export const Box = styled.div`
+   background-color: red;
+`;
+
 export const MainLayout = styled.div``;
 
 export const Background = styled.div`

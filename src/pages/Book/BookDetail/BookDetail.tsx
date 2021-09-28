@@ -18,9 +18,7 @@ const BookDetail: React.FC = () => {
          {isLoading ? (
             <Loading />
          ) : (
-            <PageContent>
-               <BookInfo book={data} />
-            </PageContent>
+            <PageContent>{data && <BookInfo book={data} />}</PageContent>
          )}
       </s.BookDetail>
    );

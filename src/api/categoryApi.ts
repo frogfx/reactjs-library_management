@@ -1,30 +1,21 @@
 import axiosClient from "./axiosClient";
+import { Category } from "../interface/index";
 const categoryApi = {
    getAll: () => {
-      return new Promise((rs, rj) => {
-         setTimeout(() => {
-            rs([
-               {
-                  id: "C000001",
-                  name: "Công nghệ phần mềm",
-               },
-               {
-                  id: "C000002",
-                  name: "Khoa học máy tính",
-               },
-            ]);
-         }, 1000);
-      });
+      const url = `/category/`;
+      return axiosClient.get(url);
    },
    get: (id: string) => {
-      return new Promise((rs, rj) => {
-         setTimeout(() => {
-            rs({
-               id: "C000001",
-               name: "Công nghệ phần mềm",
-            });
-         }, 1000);
-      });
+      const url = `/category/${id}`;
+      return axiosClient.get(url);
+   },
+   add: (params: Category) => {
+      const url = `/category/`;
+      return axiosClient.post(url, params);
+   },
+   delete: (id: string) => {
+      const url = `/category/${id}`;
+      return axiosClient.delete(url);
    },
 };
 export default categoryApi;
