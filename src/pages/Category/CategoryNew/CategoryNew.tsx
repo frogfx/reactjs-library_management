@@ -8,7 +8,7 @@ const CategoryNew: React.FC = () => {
    return (
       <s.CategoryNew>
          <PageTitle title="Category Manage" />
-         <CategoryForm title="Category New">
+         <CategoryForm title="Category New" action="add">
             <FormActionNew />
          </CategoryForm>
       </s.CategoryNew>

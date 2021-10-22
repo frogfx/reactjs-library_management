@@ -13,6 +13,10 @@ const categoryApi = {
       const url = `/category/`;
       return axiosClient.post(url, params);
    },
+   update: (params: Category) => {
+      const url = `/category/${params.id}`;
+      return axiosClient.patch(url, params);
+   },
    delete: (id: string) => {
       const url = `/category/${id}`;
       return axiosClient.delete(url);

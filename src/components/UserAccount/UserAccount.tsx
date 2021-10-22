@@ -15,9 +15,10 @@ const UserAccount: React.FC = () => {
    const { logOut } = bindActionCreators(actionCreators, dispatch);
    const toggle = () => setIsOpenDropdown(!isOpenDropdown);
    const user = useSelector((state: State) => state.auth.user);
+   const socket = useSelector((state: State) => state.socket.socket);
 
    const handleLogout = () => {
-      logOut();
+      logOut(socket);
       navigate("/login");
    };
    return (

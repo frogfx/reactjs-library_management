@@ -19,6 +19,18 @@ export interface Book {
    category: Option;
 }
 
+export interface BookModel {
+   id: string;
+   name: string;
+   author: string;
+   price: number;
+   addDate: string;
+   publisher: string;
+   reciever: string;
+   publisYear: string;
+   category: string;
+}
+
 export interface Readers {
    id: string;
    name: string;
@@ -32,6 +44,7 @@ export interface Readers {
 export interface Staff {
    id: string;
    name: string;
+   image: String;
    address: string;
    email: string;
    phone: string;

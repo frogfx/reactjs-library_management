@@ -1,6 +1,6 @@
 import React from "react";
 import { Category } from "../../interface/index";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Table from "../../components/Table/Table";
 import Tr from "../../components/Table/Tr/Tr";
 import Th from "../../components/Table/Th/Th";
@@ -33,6 +33,21 @@ const CategoryPage: React.FC = () => {
          if (res.data.delete === true) {
             navigate("/book-manage/category");
             setIsLoading(true);
+            Notification(
+               "success",
+               <NotificationContent
+                  type="success"
+                  message="Delete Category success—check it out!"
+               />
+            );
+         } else {
+            Notification(
+               "danger",
+               <NotificationContent
+                  type="danger"
+                  message="Delete Category failed—check it out!"
+               />
+            );
          }
       });
    };
@@ -71,14 +86,18 @@ const CategoryPage: React.FC = () => {
                      </Thead>
                      <Tbody>
                         {data!.map((value, i) => (
-                           <Tr>
+                           <Tr key={i}>
                               <Td isCenter>{i + 1}</Td>
                               <Td isHidden>{value.id}</Td>
                               <Td>{value.name}</Td>
                               <Td isCenter>
-                                 <s.Action onClick={() => handleEdit("1")}>
-                                    <s.PencilIcon />
-                                 </s.Action>
+                                 <Link
+                                    to={`/book-manage/category/${value.id}/edit`}
+                                 >
+                                    <s.Action>
+                                       <s.PencilIcon />
+                                    </s.Action>
+                                 </Link>
                                  <s.Action
                                     onClick={() => handleDelete(value.id)}
                                  >

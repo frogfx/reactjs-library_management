@@ -48,7 +48,7 @@ const BookPage: React.FC = () => {
                      </Thead>
                      <Tbody>
                         {data!.map((value, i) => (
-                           <Tr>
+                           <Tr key={value.id}>
                               <Td isCenter>{i + 1}</Td>
                               <Td isHidden>{value.id}</Td>
                               <Td>{value.name}</Td>

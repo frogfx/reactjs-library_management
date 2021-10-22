@@ -1,13 +1,21 @@
-import React, { ReactChild, ReactChildren } from "react";
+import React, { ReactChild, ReactChildren, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { Option, Category, Book, BookModel } from "../../../interface/index";
 import InputGroup from "../../InputGroup/InputGroup";
 import SelectGroup from "../../SelectGroup/SelectGroup";
 import FormTitle from "../FormTitle/FormTitle";
+import Notification from "../../../assets/Notification";
+import NotificationContent from "../../Notification/NotificationContent";
+import categoryApi from "../../../api/categoryApi";
+import bookApi from "../../../api/bookApi";
 import * as s from "../StyleForm";
 
 interface PropsBookForm {
    title?: string;
    children?: ReactChild | ReactChild[] | ReactChildren | ReactChildren[];
+   initValue?: Book;
+   action: "add" | "edit";
 }
 
 type FormValues = {
@@ -19,17 +27,84 @@ type FormValues = {
    category?: string;
 };
 
-const BookForm: React.FC<PropsBookForm> = ({ title, children }) => {
+const BookForm: React.FC<PropsBookForm> = ({
+   title,
+   children,
+   initValue,
+   action,
+}) => {
    const {
       register,
       handleSubmit,
+      setValue,
       formState: { errors },
    } = useForm<FormValues>({
       reValidateMode: "onSubmit",
    });
+   const navigate = useNavigate();
+   const [categories, setCategories] = useState<Option[]>([] as Option[]);
+   const [years, setYears] = useState<Option[]>([] as Option[]);
+
+   useEffect(() => {
+      const loadYears = () => {
+         const currentYear = new Date().getFullYear();
+         const yearsOption = [] as Option[];
+         var startYear = currentYear - 10;
+         while (startYear <= currentYear) {
+            yearsOption.push({
+               key: startYear.toString(),
+               value: startYear.toString(),
+            });
+            startYear++;
+         }
+         setYears(yearsOption);
+         setValue("publisYear", yearsOption[0].key);
+      };
+      const fetchData = async () => {
+         const res = await categoryApi.getAll();
+         const categoriesOption = res.data.data.map((value: Category) => {
+            return { key: value.id, value: value.name };
+         });
+         setCategories(categoriesOption);
+         setValue("category", categoriesOption[0].key);
+      };
+      fetchData();
+      loadYears();
+   }, []);
 
    const onSubmit = (data: FormValues) => {
       console.log(data);
+      const category = {
+         id: initValue?.id,
+         name: data.name,
+         category: data.category,
+         author: data.author,
+         publisYear: data.publisYear,
+         publisher: data.publisher,
+         price: data.price,
+      } as BookModel;
+      if (action === "add") {
+         bookApi.add(category).then((res) => {
+            if (res.data.add === true) {
+               navigate("/book-manage/book");
+               Notification(
+                  "success",
+                  <NotificationContent
+                     type="success"
+                     message="Add Book success—check it out!"
+                  />
+               );
+            } else {
+               Notification(
+                  "danger",
+                  <NotificationContent
+                     type="danger"
+                     message="Add Book failed—check it out!"
+                  />
+               );
+            }
+         });
+      }
    };
    return (
       <s.Form>
@@ -51,10 +126,7 @@ const BookForm: React.FC<PropsBookForm> = ({ title, children }) => {
                   <SelectGroup
                      label="Category"
                      isNull
-                     options={[
-                        { key: "1", value: "Công nghệ phần mềm" },
-                        { key: "2", value: "Khoa học máy tính" },
-                     ]}
+                     options={categories}
                      innerRef={register("category")}
                   />
                </s.FormItem>
@@ -75,10 +147,7 @@ const BookForm: React.FC<PropsBookForm> = ({ title, children }) => {
                   <SelectGroup
                      label="Publis Year"
                      isNull
-                     options={[
-                        { key: "1", value: "2020" },
-                        { key: "2", value: "2021" },
-                     ]}
+                     options={years}
                      innerRef={register("publisYear")}
                   />
                </s.FormItem>

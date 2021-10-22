@@ -8,7 +8,7 @@ const BookEdit: React.FC = () => {
    return (
       <s.BookEdit>
          <PageTitle title="Book Manage" />
-         <BookForm title="Book Edit">
+         <BookForm title="Book Edit" action="edit">
             <FormActionEdit />
          </BookForm>
       </s.BookEdit>

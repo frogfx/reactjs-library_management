@@ -6,9 +6,15 @@ import {
    Receipt,
    TachometerAlt,
 } from "@styled-icons/fa-solid";
-import { AddressCard, AddressBook } from "@styled-icons/fa-regular";
+import { AddressCard, AddressBook, Comments } from "@styled-icons/fa-regular";
 
 export const TachometerIcon = styled(TachometerAlt)`
+   width: 2rem;
+   height: 2rem;
+   margin-right: 1.5rem;
+`;
+
+export const CommentsIcon = styled(Comments)`
    width: 2rem;
    height: 2rem;
    margin-right: 1.5rem;

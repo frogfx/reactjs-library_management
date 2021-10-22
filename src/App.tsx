@@ -38,6 +38,7 @@ import EmtpyLayout from "./layouts/EmtpyLayout/EmtpyLayout";
 import LoginPage from "./pages/Login/LoginPage";
 import ResetPassPage from "./pages/ResetPass/ResetPassPage";
 import NotFoundPage from "./pages/NotFound/NotFoundPage";
+import ChatPage from "./pages/Chat/ChatPage";
 
 const AppRoutes = () => {
    const element = useRoutes([
@@ -100,6 +101,11 @@ const AppRoutes = () => {
             { path: "/:id", element: <ReadersDetail /> },
             { path: "/:id/edit", element: <ReadersEdit /> },
          ],
+      },
+      {
+         path: "chat",
+         element: <MainLayout />,
+         children: [{ path: "/", element: <ChatPage /> }],
       },
       {
          path: "profile",

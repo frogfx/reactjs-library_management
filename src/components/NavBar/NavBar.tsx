@@ -56,7 +56,13 @@ const NavBar: React.FC = () => {
                </NavDropDownLable>
             </NavDropdown>
          </s.NavBarItem>
-         <s.NavBarTitle>Auth</s.NavBarTitle>
+         <s.NavBarTitle>Auth</s.NavBarTitle>{" "}
+         <s.NavBarItem>
+            <NavLink path="/chat">
+               <s.CommentsIcon />
+               <span>Chat</span>
+            </NavLink>
+         </s.NavBarItem>
          <s.NavBarItem>
             <NavLink path="/profile">
                <s.AddressCardIcon />

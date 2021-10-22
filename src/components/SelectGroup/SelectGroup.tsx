@@ -41,7 +41,9 @@ const SelectGroup: React.FC<PropsSelectGroup> = ({
             disabled={isDisable}
          >
             {options.map((option) => (
-               <option value={option.key}>{option.value}</option>
+               <option key={option.key} value={option.key}>
+                  {option.value}
+               </option>
             ))}
          </s.Select>
          <s.Error>{error}</s.Error>

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../state";
+import { State } from "../state/reducers";
 
 export const useFetch = <T>(apiFunc: Function) => {
    const navigate = useNavigate();
@@ -11,6 +12,8 @@ export const useFetch = <T>(apiFunc: Function) => {
    const [error, setError] = useState<boolean>(false);
    const dispatch = useDispatch();
    const { logOut } = bindActionCreators(actionCreators, dispatch);
+   const socket = useSelector((state: State) => state.socket.socket);
+
    useEffect(() => {
       const fetchData = async () => {
          try {
@@ -18,7 +21,7 @@ export const useFetch = <T>(apiFunc: Function) => {
             if (response) {
                if (response.status === 401) {
                   if (response.data.authen === false) {
-                     logOut();
+                     logOut(socket);
                      navigate("/login");
                   }
                }
