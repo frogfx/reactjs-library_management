@@ -1,24 +1,25 @@
 import axiosClient from "./axiosClient";
-import { Readers } from "../interface/index";
+import { Readers, ReadersModel } from "../interface/index";
 const readersApi = {
    getAll: () => {
       const url = `/reader/`;
       return axiosClient.get(url);
    },
    get: (id: string) => {
-      return new Promise((rs, rj) => {
-         setTimeout(() => {
-            rs({
-               id: "R000001",
-               name: "Nguyễn Văn A",
-               address: "227 Nguyễn Văn Cừ, Quận 5",
-               birthDay: "20/05/1999",
-               email: "email01@gmail.com",
-               createBy: "Nguyễn Văn B",
-               category: { key: "A", value: "A" },
-            });
-         }, 1000);
-      });
+      const url = `/reader/${id}`;
+      return axiosClient.get(url);
+   },
+   add: (params: ReadersModel) => {
+      const url = `/reader/`;
+      return axiosClient.post(url, params);
+   },
+   update: (params: ReadersModel) => {
+      const url = `/reader/${params.id}`;
+      return axiosClient.patch(url, params);
+   },
+   delete: (id: string) => {
+      const url = `/reader/${id}`;
+      return axiosClient.delete(url);
    },
 };
 export default readersApi;

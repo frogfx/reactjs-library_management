@@ -39,7 +39,15 @@ const ReadersInfo: React.FC<PropsReaders> = ({ reader = {} as Readers }) => {
             </s.InfoRow>
             <s.InfoRow>
                <s.InfoItem>
+                  <InfoGroup name="Phone" value={reader.phone} />
+               </s.InfoItem>
+               <s.InfoItem>
                   <InfoGroup name="Create By" value={reader.createBy} />
+               </s.InfoItem>
+            </s.InfoRow>
+            <s.InfoRow>
+               <s.InfoItem>
+                  <InfoGroup name="Create Date" value={reader.createDate} />
                </s.InfoItem>
             </s.InfoRow>
             <InfoAction />

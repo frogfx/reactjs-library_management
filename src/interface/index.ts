@@ -37,8 +37,22 @@ export interface Readers {
    address: string;
    email: string;
    createBy: string;
+   createDate: string;
    birthDay: string;
    category: Option;
+   phone: string;
+}
+
+export interface ReadersModel {
+   id: string;
+   name: string;
+   address: string;
+   email: string;
+   createBy: string;
+   createDate: string;
+   birthDay: string;
+   category: string;
+   phone: string;
 }
 
 export interface Staff {

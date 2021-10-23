@@ -8,7 +8,7 @@ const ReadersNew: React.FC = () => {
    return (
       <s.ReadersNew>
          <PageTitle title="Readers Manage" />
-         <ReadersForm title="Readers New">
+         <ReadersForm title="Readers New" action="add">
             <FormActionNew />
          </ReadersForm>
       </s.ReadersNew>

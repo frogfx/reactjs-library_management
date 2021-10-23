@@ -118,9 +118,9 @@ const BookForm: React.FC<PropsBookForm> = ({
          publisYear: data.publisYear,
          publisher: data.publisher,
          price: data.price,
-         reciever: `${user?.id} - ${user?.name}`,
       } as BookModel;
       if (action === "add") {
+         book.reciever = `${user?.id} - ${user?.name}`;
          bookApi.add(book).then((res) => {
             if (res.data.add === true) {
                navigate(`/book-manage/book`);

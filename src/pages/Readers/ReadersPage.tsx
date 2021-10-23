@@ -57,7 +57,7 @@ const ReadersPage: React.FC = () => {
                               <Td>{value.category.value}</Td>
                               <Td isHidden>{value.address}</Td>
                               <Td isCenter>
-                                 <Link to="1">
+                                 <Link to={`/readers/${value.id}`}>
                                     <s.EyeIcon />
                                  </Link>
                               </Td>
