@@ -9,7 +9,7 @@ const ReturnsEdit: React.FC = () => {
       <s.ReturnsEdit>
          <PageTitle title="Returns Receipt Manage" />
          <ReturnsForm title="Returns Receipt Edit">
-            <FormActionEdit />
+            <FormActionEdit callbackDelete={() => {}} />
          </ReturnsForm>
       </s.ReturnsEdit>
    );

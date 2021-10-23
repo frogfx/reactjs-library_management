@@ -1,6 +1,6 @@
 export interface Option {
-   key: string;
-   value: string;
+   key?: string;
+   value?: string;
 }
 export interface Category {
    id: string;

@@ -2,6 +2,8 @@ import React, { ReactChild, ReactChildren, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { Option, Category, Book, BookModel } from "../../../interface/index";
+import { State } from "../../../state/reducers";
+import { useSelector } from "react-redux";
 import InputGroup from "../../InputGroup/InputGroup";
 import SelectGroup from "../../SelectGroup/SelectGroup";
 import FormTitle from "../FormTitle/FormTitle";
@@ -44,8 +46,13 @@ const BookForm: React.FC<PropsBookForm> = ({
    const navigate = useNavigate();
    const [categories, setCategories] = useState<Option[]>([] as Option[]);
    const [years, setYears] = useState<Option[]>([] as Option[]);
+   const user = useSelector((state: State) => state.auth.user);
 
    useEffect(() => {
+      setValue("name", initValue?.name);
+      setValue("author", initValue?.author);
+      setValue("publisher", initValue?.publisher);
+      setValue("price", initValue?.price);
       const loadYears = () => {
          const currentYear = new Date().getFullYear();
          const yearsOption = [] as Option[];
@@ -57,24 +64,53 @@ const BookForm: React.FC<PropsBookForm> = ({
             });
             startYear++;
          }
+         if (action === "add") setValue("publisYear", yearsOption[0].key);
+         else {
+            const index = yearsOption.findIndex(
+               (year) => year.key === initValue?.publisYear.key
+            );
+            if (index >= 0) {
+               setValue("publisYear", initValue?.publisYear.key);
+               console.log(initValue?.publisYear.key);
+            } else {
+               if (initValue?.publisYear)
+                  yearsOption.unshift(initValue?.publisYear);
+               setValue("publisYear", initValue?.publisYear.key);
+            }
+         }
          setYears(yearsOption);
-         setValue("publisYear", yearsOption[0].key);
       };
       const fetchData = async () => {
          const res = await categoryApi.getAll();
-         const categoriesOption = res.data.data.map((value: Category) => {
-            return { key: value.id, value: value.name };
-         });
+         const categoriesOption: Option[] = res.data.data.map(
+            (category: Category) => {
+               return {
+                  key: category.id,
+                  value: category.name,
+               } as Option;
+            }
+         );
+         if (action === "add") setValue("category", categoriesOption[0].key);
+         else {
+            const index = categoriesOption.findIndex(
+               (category) => category.key === initValue?.category.key
+            );
+            if (index >= 0) setValue("category", initValue?.category.key);
+            else {
+               if (initValue?.category)
+                  categoriesOption.unshift(initValue?.category);
+               setValue("category", initValue?.category.key);
+            }
+         }
          setCategories(categoriesOption);
-         setValue("category", categoriesOption[0].key);
       };
       fetchData();
       loadYears();
-   }, []);
+   }, [initValue, action, setValue]);
 
    const onSubmit = (data: FormValues) => {
       console.log(data);
-      const category = {
+      const book = {
          id: initValue?.id,
          name: data.name,
          category: data.category,
@@ -82,11 +118,12 @@ const BookForm: React.FC<PropsBookForm> = ({
          publisYear: data.publisYear,
          publisher: data.publisher,
          price: data.price,
+         reciever: `${user?.id} - ${user?.name}`,
       } as BookModel;
       if (action === "add") {
-         bookApi.add(category).then((res) => {
+         bookApi.add(book).then((res) => {
             if (res.data.add === true) {
-               navigate("/book-manage/book");
+               navigate(`/book-manage/book`);
                Notification(
                   "success",
                   <NotificationContent
@@ -100,6 +137,27 @@ const BookForm: React.FC<PropsBookForm> = ({
                   <NotificationContent
                      type="danger"
                      message="Add Book failed—check it out!"
+                  />
+               );
+            }
+         });
+      } else if (action === "edit") {
+         bookApi.update(book).then((res) => {
+            if (res.data.update === true) {
+               navigate(`/book-manage/book/${initValue?.id}`);
+               Notification(
+                  "success",
+                  <NotificationContent
+                     type="success"
+                     message="Update Book success—check it out!"
+                  />
+               );
+            } else {
+               Notification(
+                  "danger",
+                  <NotificationContent
+                     type="danger"
+                     message="Update Book failed—check it out!"
                   />
                );
             }

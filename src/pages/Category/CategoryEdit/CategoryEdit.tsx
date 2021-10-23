@@ -21,7 +21,7 @@ const CategoryEdit: React.FC = () => {
             <Loading />
          ) : (
             <CategoryForm title="Category Edit" initValue={data} action="edit">
-               <FormActionEdit />
+               <FormActionEdit callbackDelete={() => {}} />
             </CategoryForm>
          )}
       </s.CategoryEdit>

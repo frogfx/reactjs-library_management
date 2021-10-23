@@ -9,7 +9,7 @@ const StaffEdit: React.FC = () => {
       <s.StaffEdit>
          <PageTitle title="Staff Manage" />
          <StaffForm title="Staff Edit">
-            <FormActionEdit />
+            <FormActionEdit callbackDelete={() => {}} />
          </StaffForm>
       </s.StaffEdit>
    );

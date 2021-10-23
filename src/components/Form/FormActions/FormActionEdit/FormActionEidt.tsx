@@ -3,7 +3,11 @@ import { useNavigate } from "react-router-dom";
 import Button from "../../../Button/Button";
 import * as s from "../StyleFormActions";
 
-const FormActionEdit: React.FC = () => {
+interface PropsActionEdit {
+   callbackDelete: Function;
+}
+
+const FormActionEdit: React.FC<PropsActionEdit> = ({ callbackDelete }) => {
    const navigate = useNavigate();
    return (
       <s.FormActions>
@@ -13,7 +17,11 @@ const FormActionEdit: React.FC = () => {
             </Button>
          </s.Action>
          <s.Action>
-            <Button typeColor="danger">
+            <Button
+               typeColor="danger"
+               type="button"
+               onClick={() => callbackDelete()}
+            >
                <s.TrashIcon />
                <span>Delete</span>
             </Button>

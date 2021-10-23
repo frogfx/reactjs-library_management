@@ -38,7 +38,7 @@ const CategoryForm: React.FC<PropsCategoryForm> = ({
 
    useEffect(() => {
       setValue("name", initValue?.name);
-   }, []);
+   }, [initValue, setValue]);
 
    const onSubmit = (data: FormValues) => {
       const category = { id: initValue?.id, name: data.name } as Category;
@@ -66,7 +66,6 @@ const CategoryForm: React.FC<PropsCategoryForm> = ({
       } else if (action === "edit") {
          categoryApi.update(category).then((res) => {
             if (res.data.update === true) {
-               navigate("/book-manage/category");
                navigate("/book-manage/category");
                Notification(
                   "success",

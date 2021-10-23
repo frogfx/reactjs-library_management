@@ -9,7 +9,7 @@ const ReadersEdit: React.FC = () => {
       <s.ReadersEdit>
          <PageTitle title="Readers Manage" />
          <ReadersForm title="Readers Edit">
-            <FormActionEdit />
+            <FormActionEdit callbackDelete={() => {}} />
          </ReadersForm>
       </s.ReadersEdit>
    );
