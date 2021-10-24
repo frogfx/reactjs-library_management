@@ -48,14 +48,14 @@ const StaffPage: React.FC = () => {
                      </Thead>
                      <Tbody>
                         {data!.map((value, i) => (
-                           <Tr>
+                           <Tr key={value.id}>
                               <Td isCenter>{i + 1}</Td>
                               <Td isHidden>{value.id}</Td>
                               <Td>{value.name}</Td>
                               <Td isHidden>{value.address}</Td>
                               <Td>{value.position.value}</Td>
                               <Td isCenter>
-                                 <Link to="1">
+                                 <Link to={`/staff/${value.id}`}>
                                     <s.EyeIcon />
                                  </Link>
                               </Td>

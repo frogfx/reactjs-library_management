@@ -48,14 +48,14 @@ const FinePage: React.FC = () => {
                      </Thead>
                      <Tbody>
                         {data!.map((value, i) => (
-                           <Tr>
+                           <Tr key={value.id}>
                               <Td isCenter>{i + 1}</Td>
                               <Td>{value.reader.value}</Td>
                               <Td isHidden>{`${value.debt} VND`}</Td>
                               <Td>{`${value.payment} VND`}</Td>
                               <Td isHidden>{`${value.remaining} VND`}</Td>
                               <Td isCenter>
-                                 <Link to="1">
+                                 <Link to={`/receipt-manage/fine/${value.id}`}>
                                     <s.EyeIcon />
                                  </Link>
                               </Td>

@@ -6,18 +6,20 @@ const fineApi = {
       return axiosClient.get(url);
    },
    get: (id: string) => {
-      return new Promise((rs, rj) => {
-         setTimeout(() => {
-            rs({
-               id: "F000001",
-               reader: { key: "1", value: "Nguyễn Văn A" },
-               debt: 50000,
-               payment: 30000,
-               remaining: 20000,
-               createBy: "Nguyễn Văn B",
-            });
-         }, 1000);
-      });
+      const url = `/fine/${id}`;
+      return axiosClient.get(url);
    },
+   // add: (params: StaffModel) => {
+   //    const url = `/staff/`;
+   //    return axiosClient.post(url, params);
+   // },
+   // update: (params: StaffModel) => {
+   //    const url = `/staff/${params.id}`;
+   //    return axiosClient.patch(url, params);
+   // },
+   // delete: (id: string) => {
+   //    const url = `/staff/${id}`;
+   //    return axiosClient.delete(url);
+   // },
 };
 export default fineApi;

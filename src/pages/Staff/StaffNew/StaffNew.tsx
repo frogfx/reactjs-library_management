@@ -8,7 +8,7 @@ const StaffNew: React.FC = () => {
    return (
       <s.StaffNew>
          <PageTitle title="Staff Manage" />
-         <StaffForm title="Staff New">
+         <StaffForm title="Staff New" action="add">
             <FormActionNew />
          </StaffForm>
       </s.StaffNew>

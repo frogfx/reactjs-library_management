@@ -1,3 +1,4 @@
+import { StaffModel } from "../interface";
 import axiosClient from "./axiosClient";
 
 const staffApi = {
@@ -6,20 +7,20 @@ const staffApi = {
       return axiosClient.get(url);
    },
    get: (id: string) => {
-      return new Promise((rs, rj) => {
-         setTimeout(() => {
-            rs({
-               id: "C000001",
-               name: "Nguyễn Văn A",
-               address: "227 Nguyễn Văn Cừ, Quận 5",
-               birthDay: "20/05/1999",
-               phone: "0123456789",
-               degree: { key: "college", value: "College" },
-               position: { key: "employee", value: "Employee" },
-               part: { key: "librarian", value: "Librarian" },
-            });
-         }, 1000);
-      });
+      const url = `/staff/${id}`;
+      return axiosClient.get(url);
+   },
+   add: (params: StaffModel) => {
+      const url = `/staff/`;
+      return axiosClient.post(url, params);
+   },
+   update: (params: StaffModel) => {
+      const url = `/staff/${params.id}`;
+      return axiosClient.patch(url, params);
+   },
+   delete: (id: string) => {
+      const url = `/staff/${id}`;
+      return axiosClient.delete(url);
    },
 };
 export default staffApi;

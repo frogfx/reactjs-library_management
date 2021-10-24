@@ -58,7 +58,7 @@ export interface ReadersModel {
 export interface Staff {
    id: string;
    name: string;
-   image: String;
+   image?: String;
    address: string;
    email: string;
    phone: string;
@@ -66,6 +66,23 @@ export interface Staff {
    position: Option;
    part: Option;
    degree: Option;
+   createBy: string;
+   createDate: string;
+}
+
+export interface StaffModel {
+   id: string;
+   name: string;
+   image?: String;
+   address: string;
+   email: string;
+   phone: string;
+   birthDay: string;
+   position: string;
+   part: string;
+   degree: string;
+   createBy: string;
+   createDate: string;
 }
 
 export interface BookInBorrow {
@@ -114,6 +131,7 @@ export interface Fine {
    payment: number;
    remaining: number;
    createBy: string;
+   createDate: string;
 }
 
 export interface User {

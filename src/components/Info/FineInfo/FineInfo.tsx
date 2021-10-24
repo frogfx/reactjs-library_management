@@ -31,7 +31,10 @@ const FineInfo: React.FC<PropsFine> = ({ fine = {} as Fine }) => {
             </s.InfoRow>
             <s.InfoRow>
                <s.InfoItem>
-                  <InfoGroup name="Creat Staff" value={fine.createBy} />
+                  <InfoGroup name="Creat By" value={fine.createBy} />
+               </s.InfoItem>
+               <s.InfoItem>
+                  <InfoGroup name="Creat Date" value={fine.createDate} />
                </s.InfoItem>
             </s.InfoRow>
             <InfoAction />

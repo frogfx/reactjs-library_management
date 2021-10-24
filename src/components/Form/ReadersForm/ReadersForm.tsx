@@ -210,6 +210,7 @@ const ReadersForm: React.FC<PropsReadersForm> = ({
                         },
                      })}
                      error={errors.phone ? errors.phone.message : ""}
+                     type="number"
                   />
                </s.FormItem>
             </s.FormRow>
