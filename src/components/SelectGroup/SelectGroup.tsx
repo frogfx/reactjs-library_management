@@ -16,6 +16,7 @@ interface PropsSelectGroup {
    error?: string;
    options: Option[];
    isDisable?: boolean;
+   callBackChange?: React.ChangeEventHandler<HTMLSelectElement>;
 }
 
 const SelectGroup: React.FC<PropsSelectGroup> = ({
@@ -27,6 +28,7 @@ const SelectGroup: React.FC<PropsSelectGroup> = ({
    error,
    options,
    isDisable,
+   callBackChange,
 }) => {
    return (
       <s.Group>
@@ -36,6 +38,7 @@ const SelectGroup: React.FC<PropsSelectGroup> = ({
          </s.Label>
          <s.Select
             {...innerRef}
+            onChange={callBackChange}
             id={id}
             placeholder={placeholder}
             disabled={isDisable}

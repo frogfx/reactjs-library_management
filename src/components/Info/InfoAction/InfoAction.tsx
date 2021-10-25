@@ -4,7 +4,11 @@ import { useNavigate } from "react-router-dom";
 import Button from "../../Button/Button";
 import * as s from "./StyleInfoAction";
 
-const InfoAction: React.FC = () => {
+interface PropsInfoAction {
+   onDelete?: Function;
+}
+
+const InfoAction: React.FC<PropsInfoAction> = ({ onDelete }) => {
    const navigate = useNavigate();
    return (
       <s.InfoAction>
@@ -13,13 +17,21 @@ const InfoAction: React.FC = () => {
                <s.LeftIcon /> Back
             </Button>
          </s.Action>
-         <s.Action>
-            <Link to="edit">
-               <Button typeColor="warning">
-                  <s.PenIcon /> Edit
+         {onDelete ? (
+            <s.Action onClick={() => onDelete()}>
+               <Button typeColor="danger">
+                  <s.TrashIcon /> Delete
                </Button>
-            </Link>
-         </s.Action>
+            </s.Action>
+         ) : (
+            <s.Action>
+               <Link to="edit">
+                  <Button typeColor="warning">
+                     <s.PenIcon /> Edit
+                  </Button>
+               </Link>
+            </s.Action>
+         )}
       </s.InfoAction>
    );
 };

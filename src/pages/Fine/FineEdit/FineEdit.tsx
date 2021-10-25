@@ -8,7 +8,7 @@ const FineEdit: React.FC = () => {
    return (
       <s.FineEdit>
          <PageTitle title="Fine Receipt Manage" />
-         <FineForm title="Fine Edit">
+         <FineForm title="Fine Edit" action="edit">
             <FormActionNew />
          </FineForm>
       </s.FineEdit>

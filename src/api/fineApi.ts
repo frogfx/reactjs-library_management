@@ -1,12 +1,16 @@
 import axiosClient from "./axiosClient";
 import { Fine } from "../interface/index";
-const fineApi = {
+const fineReceiptApi = {
    getAll: () => {
       const url = `/fine/`;
       return axiosClient.get(url);
    },
    get: (id: string) => {
       const url = `/fine/${id}`;
+      return axiosClient.get(url);
+   },
+   getByReader: (readerId: string) => {
+      const url = `/fine/reader/${readerId}`;
       return axiosClient.get(url);
    },
    // add: (params: StaffModel) => {
@@ -22,4 +26,4 @@ const fineApi = {
    //    return axiosClient.delete(url);
    // },
 };
-export default fineApi;
+export default fineReceiptApi;

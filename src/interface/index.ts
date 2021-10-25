@@ -128,10 +128,23 @@ export interface Fine {
    id: string;
    reader: Option;
    debt: number;
+}
+
+export interface FineReceipt {
+   id: string;
+   reader: Option;
+   debt: number;
    payment: number;
    remaining: number;
    createBy: string;
    createDate: string;
+}
+
+export interface FineReceiptModel {
+   reader: string;
+   debt: number;
+   payment: number;
+   createBy: string;
 }
 
 export interface User {

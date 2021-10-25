@@ -55,6 +55,7 @@ export const FormRow = styled.div`
 
 export const FormItem = styled.div`
    width: calc(50% - 1rem);
+
    ${(props: PropsFormItem) =>
       props.isFull &&
       css`

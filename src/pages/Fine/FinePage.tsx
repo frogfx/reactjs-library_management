@@ -15,13 +15,15 @@ import TableActions from "../../components/Table/TableActions/TableActions";
 import TableDes from "../../components/Table/TableDes/TableDes";
 import TablePagination from "../../components/Table/TablePagination/TablePagination";
 import useFetch from "../../hooks/useFetch";
-import { Fine } from "../../interface/index";
-import fineApi from "../../api/fineApi";
+import { FineReceipt } from "../../interface/index";
+import fineReceiptApi from "../../api/fineReceiptApi";
 import Loading from "../../components/Loading/Loading";
 import PageContent from "../../components/Page/PageContent/PageConent";
 
 const FinePage: React.FC = () => {
-   const [data, isLoading, error] = useFetch<Fine[]>(() => fineApi.getAll());
+   const [data, isLoading, error] = useFetch<FineReceipt[]>(() =>
+      fineReceiptApi.getAll()
+   );
    return (
       <s.FinePage>
          {isLoading ? (

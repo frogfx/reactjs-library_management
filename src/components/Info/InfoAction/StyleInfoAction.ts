@@ -1,5 +1,12 @@
 import styled from "styled-components";
 import { LongArrowAltLeft, PencilAlt } from "@styled-icons/fa-solid";
+import { TrashAlt } from "@styled-icons/fa-regular";
+
+export const TrashIcon = styled(TrashAlt)`
+   width: 1.4rem;
+   height: 1.4rem;
+   margin-right: 0.5rem;
+`;
 
 export const PenIcon = styled(PencilAlt)`
    width: 1.5rem;
