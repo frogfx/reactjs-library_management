@@ -27,12 +27,26 @@ const BorrowInfo: React.FC<PropsBorrow> = ({ borrow = {} as Borrow }) => {
                   <InfoGroup name="ID" value={borrow.id} />
                </s.InfoItem>
                <s.InfoItem>
-                  <InfoGroup name="Reader Name" value={borrow.readers.value} />
+                  <InfoGroup name="Reader Name" value={borrow.reader.value} />
                </s.InfoItem>
             </s.InfoRow>
             <s.InfoRow>
                <s.InfoItem>
                   <InfoGroup name="Borrow Date" value={borrow.borrowDate} />
+               </s.InfoItem>
+               <s.InfoItem>
+                  <InfoGroup
+                     name="Status"
+                     value={borrow.paid ? "Paid" : "UnPaid"}
+                  />
+               </s.InfoItem>
+            </s.InfoRow>
+            <s.InfoRow>
+               <s.InfoItem>
+                  <InfoGroup name="Create By" value={borrow.createBy} />
+               </s.InfoItem>
+               <s.InfoItem>
+                  <InfoGroup name="Create Date" value={borrow.createDate} />
                </s.InfoItem>
             </s.InfoRow>
             <s.InfoTable>
@@ -52,7 +66,7 @@ const BorrowInfo: React.FC<PropsBorrow> = ({ borrow = {} as Borrow }) => {
                   </Thead>
                   <Tbody>
                      {borrow.books.map((book, i) => (
-                        <Tr>
+                        <Tr key={book.id}>
                            <Td isCenter>{i + 1}</Td>
                            <Td>{book.id}</Td>
                            <Td>{book.name}</Td>

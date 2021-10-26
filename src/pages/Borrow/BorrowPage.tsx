@@ -15,14 +15,14 @@ import Tbody from "../../components/Table/Tbody/Tbody";
 import TableActions from "../../components/Table/TableActions/TableActions";
 import TableDes from "../../components/Table/TableDes/TableDes";
 import TablePagination from "../../components/Table/TablePagination/TablePagination";
-import borrowApi from "../../api/borrowApi";
+import borrowReceiptApi from "../../api/borrowReceiptApi";
 import useFetch from "../../hooks/useFetch";
 import Loading from "../../components/Loading/Loading";
 import PageContent from "../../components/Page/PageContent/PageConent";
 
 const BorrowPage: React.FC = () => {
    const [data, isLoading, error] = useFetch<Borrow[]>(() =>
-      borrowApi.getAll()
+      borrowReceiptApi.getAll()
    );
    return (
       <s.BorrowPage>
@@ -43,20 +43,24 @@ const BorrowPage: React.FC = () => {
                            <Th width="3.5">No.</Th>
                            <Th>Reader</Th>
                            <Th>Borrow Date</Th>
+                           <Th isHidden>Quantity</Th>
                            <Th isHidden>Status</Th>
                            <Th isCenter>Actions</Th>
                         </Tr>
                      </Thead>
                      <Tbody>
                         {data!.map((value, i) => (
-                           <Tr>
+                           <Tr key={value.id}>
                               <Td isCenter>{i + 1}</Td>
-                              <Td>{value.readers.value}</Td>
+                              <Td>{value.reader.value}</Td>
                               <Td>{value.borrowDate}</Td>
-                              <Td isHidden>{value.status}</Td>
+                              <Td isHidden>{value.books.length}</Td>
+                              <Td isHidden>{value.paid ? "Paid" : "Unpaid"}</Td>
                               <Td isCenter>
                                  <s.Action>
-                                    <Link to="1">
+                                    <Link
+                                       to={`/receipt-manage/borrow/${value.id}`}
+                                    >
                                        <s.EyeIcon />
                                     </Link>
                                  </s.Action>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Button from "../Button/Button";
 import SelectGroup from "../SelectGroup/SelectGroup";
@@ -25,7 +25,12 @@ const ModalAdd: React.FC<PropsModal> = ({
    handleAdd,
 }) => {
    const [error, setError] = useState<string>("");
-   const { register, getValues } = useForm();
+   const { register, getValues, setValue } = useForm();
+
+   useEffect(() => {
+      if (options.length > 0) setValue("chose", options[0].key);
+   }, [setValue, options]);
+
    const handleAddClick = () => {
       const messError = handleAdd(getValues("chose"));
       if (messError) {

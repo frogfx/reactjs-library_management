@@ -55,7 +55,6 @@ export const FormRow = styled.div`
 
 export const FormItem = styled.div`
    width: calc(50% - 1rem);
-
    ${(props: PropsFormItem) =>
       props.isFull &&
       css`
@@ -98,6 +97,9 @@ export const FormTableAdd = styled.button`
    &:hover {
       background-color: #3266bb;
    }
+   &:disabled {
+      cursor: no-drop;
+   }
 `;
 
 export const IsLost = styled.input`
@@ -118,5 +120,5 @@ export const Error = styled.p`
    color: #df5353;
    font-weight: 300;
    text-align: center;
-   margin-bottom: 1rem;
+   margin: 1.5rem 0 0;
 `;

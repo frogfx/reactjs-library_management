@@ -8,7 +8,7 @@ const BorrowNew: React.FC = () => {
    return (
       <s.BorrowNew>
          <PageTitle title="Borrow Receipt Manage" />
-         <BorrowForm title="Borrow Receipt New">
+         <BorrowForm title="Borrow Receipt New" action="add">
             <FormActionNew />
          </BorrowForm>
       </s.BorrowNew>

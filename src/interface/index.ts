@@ -95,9 +95,21 @@ export interface BookInBorrow {
 export interface Borrow {
    id: string;
    borrowDate: string;
-   readers: Option;
+   reader: Option;
    books: BookInBorrow[];
-   status: string;
+   paid: Boolean;
+   createBy: string;
+   createDate: string;
+}
+
+export interface BorrowModel {
+   id: string;
+   borrowDate: string;
+   reader: string;
+   books: string[];
+   createBy: string;
+   createDate: string;
+   paid: Boolean;
 }
 
 export interface BookInReturns {
